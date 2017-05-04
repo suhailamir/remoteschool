@@ -1,11 +1,12 @@
 {
-  "main": {
-    "js": "/remoteschool/main.bundle.js"
-  },
   "vendor": {
-    "js": "/remoteschool/vendor.bundle.js"
+    "js": "/remoteschool/vendor.1b626c65e11ddf1c8024.bundle.js"
+  },
+  "main": {
+    "js": "/remoteschool/main.956c025e8a2b8502c8eb.bundle.js",
+    "css": "/remoteschool/main.d799841e5ce53c2fb9389a7567f94401.css"
   },
   "polyfills": {
-    "js": "/remoteschool/polyfills.bundle.js"
+    "js": "/remoteschool/polyfills.0c3214e0535e4dc02e50.bundle.js"
   }
 }
