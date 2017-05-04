@@ -1,3 +1,3 @@
 <p align="center">
-Remote school for online teaching.
+Remote school for online teaching .
 </p>
