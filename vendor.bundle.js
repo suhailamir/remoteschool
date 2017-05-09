@@ -191,7 +191,7 @@ function localstorage() {
   } catch (e) {}
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(46)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(47)))
 
 /***/ }),
 /* 4 */,
@@ -558,10 +558,10 @@ Emitter.prototype.hasListeners = function(event){
  */
 
 var keys = __webpack_require__(98);
-var hasBinary = __webpack_require__(27);
+var hasBinary = __webpack_require__(28);
 var sliceBuffer = __webpack_require__(82);
 var after = __webpack_require__(81);
-var utf8 = __webpack_require__(117);
+var utf8 = __webpack_require__(116);
 
 var base64encoder;
 if (global && global.ArrayBuffer) {
@@ -1523,8 +1523,8 @@ exports.decode = function(qs){
 var debug = __webpack_require__(3)('socket.io-parser');
 var json = __webpack_require__(100);
 var Emitter = __webpack_require__(8);
-var binary = __webpack_require__(108);
-var isBuf = __webpack_require__(34);
+var binary = __webpack_require__(107);
+var isBuf = __webpack_require__(35);
 
 /**
  * Protocol version.
@@ -1928,7 +1928,8 @@ function error(data){
 /* 21 */,
 /* 22 */,
 /* 23 */,
-/* 24 */
+/* 24 */,
+/* 25 */
 /***/ (function(module, exports) {
 
 /**
@@ -1957,7 +1958,7 @@ module.exports = function(obj, fn){
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/**
@@ -2017,7 +2018,7 @@ function polling (opts) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -2028,7 +2029,7 @@ var Transport = __webpack_require__(14);
 var parseqs = __webpack_require__(16);
 var parser = __webpack_require__(9);
 var inherit = __webpack_require__(11);
-var yeast = __webpack_require__(37);
+var yeast = __webpack_require__(38);
 var debug = __webpack_require__(3)('engine.io-client:polling');
 
 /**
@@ -2268,7 +2269,7 @@ Polling.prototype.uri = function () {
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {
@@ -2276,7 +2277,7 @@ Polling.prototype.uri = function () {
  * Module requirements.
  */
 
-var isArray = __webpack_require__(29);
+var isArray = __webpack_require__(30);
 
 /**
  * Module exports.
@@ -2334,7 +2335,7 @@ function hasBinary(data) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports) {
 
 
@@ -2349,7 +2350,7 @@ module.exports = function(arr, obj){
 };
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -2360,7 +2361,7 @@ module.exports = Array.isArray || function (arr) {
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports) {
 
 /**
@@ -2405,7 +2406,7 @@ module.exports = function parseuri(str) {
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -2414,13 +2415,13 @@ module.exports = function parseuri(str) {
  */
 
 var eio = __webpack_require__(92);
-var Socket = __webpack_require__(33);
+var Socket = __webpack_require__(34);
 var Emitter = __webpack_require__(8);
 var parser = __webpack_require__(17);
-var on = __webpack_require__(32);
-var bind = __webpack_require__(24);
+var on = __webpack_require__(33);
+var bind = __webpack_require__(25);
 var debug = __webpack_require__(3)('socket.io-client:manager');
-var indexOf = __webpack_require__(28);
+var indexOf = __webpack_require__(29);
 var Backoff = __webpack_require__(83);
 
 /**
@@ -2971,7 +2972,7 @@ Manager.prototype.onreconnect = function () {
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports) {
 
 
@@ -3001,7 +3002,7 @@ function on (obj, ev, fn) {
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -3011,11 +3012,11 @@ function on (obj, ev, fn) {
 
 var parser = __webpack_require__(17);
 var Emitter = __webpack_require__(8);
-var toArray = __webpack_require__(112);
-var on = __webpack_require__(32);
-var bind = __webpack_require__(24);
+var toArray = __webpack_require__(111);
+var on = __webpack_require__(33);
+var bind = __webpack_require__(25);
 var debug = __webpack_require__(3)('socket.io-client:socket');
-var hasBin = __webpack_require__(27);
+var hasBin = __webpack_require__(28);
 
 /**
  * Module exports.
@@ -3426,7 +3427,7 @@ Socket.prototype.compress = function (compress) {
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {
@@ -3446,7 +3447,7 @@ function isBuf(obj) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -3483,7 +3484,7 @@ var stylesInDom = {},
 	singletonElement = null,
 	singletonCounter = 0,
 	styleElementsInsertedAtTop = [],
-	fixUrls = __webpack_require__(109);
+	fixUrls = __webpack_require__(108);
 
 module.exports = function(list, options) {
 	if(typeof DEBUG !== "undefined" && DEBUG) {
@@ -3742,7 +3743,7 @@ function updateLink(linkElement, options, obj) {
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -3770,7 +3771,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3845,7 +3846,6 @@ module.exports = yeast;
 
 
 /***/ }),
-/* 38 */,
 /* 39 */,
 /* 40 */,
 /* 41 */,
@@ -4468,12 +4468,12 @@ module.exports.parser = __webpack_require__(9);
  * Module dependencies.
  */
 
-var transports = __webpack_require__(25);
+var transports = __webpack_require__(26);
 var Emitter = __webpack_require__(8);
 var debug = __webpack_require__(3)('engine.io-client:socket');
-var index = __webpack_require__(28);
+var index = __webpack_require__(29);
 var parser = __webpack_require__(9);
-var parseuri = __webpack_require__(30);
+var parseuri = __webpack_require__(31);
 var parsejson = __webpack_require__(102);
 var parseqs = __webpack_require__(16);
 
@@ -4608,7 +4608,7 @@ Socket.protocol = parser.protocol; // this is an int
 
 Socket.Socket = Socket;
 Socket.Transport = __webpack_require__(14);
-Socket.transports = __webpack_require__(25);
+Socket.transports = __webpack_require__(26);
 Socket.parser = __webpack_require__(9);
 
 /**
@@ -5214,7 +5214,7 @@ Socket.prototype.filterUpgrades = function (upgrades) {
  * Module requirements.
  */
 
-var Polling = __webpack_require__(26);
+var Polling = __webpack_require__(27);
 var inherit = __webpack_require__(11);
 
 /**
@@ -5452,7 +5452,7 @@ JSONPPolling.prototype.doWrite = function (data, fn) {
  */
 
 var XMLHttpRequest = __webpack_require__(15);
-var Polling = __webpack_require__(26);
+var Polling = __webpack_require__(27);
 var Emitter = __webpack_require__(8);
 var inherit = __webpack_require__(11);
 var debug = __webpack_require__(3)('engine.io-client:polling-xhr');
@@ -5886,7 +5886,7 @@ var Transport = __webpack_require__(14);
 var parser = __webpack_require__(9);
 var parseqs = __webpack_require__(16);
 var inherit = __webpack_require__(11);
-var yeast = __webpack_require__(37);
+var yeast = __webpack_require__(38);
 var debug = __webpack_require__(3)('engine.io-client:websocket');
 var BrowserWebSocket = global.WebSocket || global.MozWebSocket;
 var NodeWebSocket;
@@ -6222,7 +6222,7 @@ try {
 ;(function () {
   // Detect the `define` function exposed by asynchronous module loaders. The
   // strict `define` check is necessary for compatibility with `r.js`.
-  var isLoader = "function" === "function" && __webpack_require__(116);
+  var isLoader = "function" === "function" && __webpack_require__(115);
 
   // A set of types used to distinguish objects from primitives.
   var objectTypes = {
@@ -7122,7 +7122,7 @@ try {
   }
 }).call(this);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36)(module), __webpack_require__(2)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(37)(module), __webpack_require__(2)))
 
 /***/ }),
 /* 101 */
@@ -7321,505 +7321,6 @@ module.exports = function parsejson(data) {
 /* 103 */,
 /* 104 */,
 /* 105 */
-/***/ (function(module, exports) {
-
-// Last time updated at August 19, 2014, 14:46:23
-
-// Muaz Khan     - www.MuazKhan.com
-// MIT License   - www.WebRTC-Experiment.com/licence
-// Documentation - github.com/muaz-khan/WebRTC-Experiment/tree/master/getMediaElement
-
-// Demo          - www.WebRTC-Experiment.com/getMediaElement
-
-document.write('<link rel="stylesheet" href="https://cdn.WebRTC-Experiment.com/getMediaElement.css">');
-
-// __________________
-// getMediaElement.js
-
-function getMediaElement(mediaElement, config) {
-    config = config || {};
-
-    if (!mediaElement.nodeName || (mediaElement.nodeName.toLowerCase() != 'audio' && mediaElement.nodeName.toLowerCase() != 'video')) {
-        if (!mediaElement.getVideoTracks().length) {
-            return getAudioElement(mediaElement, config);
-        }
-
-        var mediaStream = mediaElement;
-        mediaElement = document.createElement(mediaStream.getVideoTracks().length ? 'video' : 'audio');
-        mediaElement[!!navigator.mozGetUserMedia ? 'mozSrcObject' : 'src'] = !!navigator.mozGetUserMedia ? mediaStream : window.webkitURL.createObjectURL(mediaStream);
-    }
-
-    if (mediaElement.nodeName && mediaElement.nodeName.toLowerCase() == 'audio') {
-        return getAudioElement(mediaElement, config);
-    }
-
-    mediaElement.controls = false;
-
-    var buttons = config.buttons || ['mute-audio', 'mute-video', 'full-screen', 'volume-slider', 'stop'];
-    buttons.has = function(element) {
-        return buttons.indexOf(element) !== -1;
-    };
-
-    config.toggle = config.toggle || [];
-    config.toggle.has = function(element) {
-        return config.toggle.indexOf(element) !== -1;
-    };
-
-    var mediaElementContainer = document.createElement('div');
-    mediaElementContainer.className = 'media-container';
-
-    var mediaControls = document.createElement('div');
-    mediaControls.className = 'media-controls';
-    mediaElementContainer.appendChild(mediaControls);
-
-    if (buttons.has('mute-audio')) {
-        var muteAudio = document.createElement('div');
-        muteAudio.className = 'control ' + (config.toggle.has('mute-audio') ? 'unmute-audio selected' : 'mute-audio');
-        mediaControls.appendChild(muteAudio);
-
-        muteAudio.onclick = function() {
-            if (muteAudio.className.indexOf('unmute-audio') != -1) {
-                muteAudio.className = muteAudio.className.replace('unmute-audio selected', 'mute-audio');
-                mediaElement.muted = false;
-                mediaElement.volume = 1;
-                if (config.onUnMuted) config.onUnMuted('audio');
-            } else {
-                muteAudio.className = muteAudio.className.replace('mute-audio', 'unmute-audio selected');
-                mediaElement.muted = true;
-                mediaElement.volume = 0;
-                if (config.onMuted) config.onMuted('audio');
-            }
-        };
-    }
-
-    if (buttons.has('mute-video')) {
-        var muteVideo = document.createElement('div');
-        muteVideo.className = 'control ' + (config.toggle.has('mute-video') ? 'unmute-video selected' : 'mute-video');
-        mediaControls.appendChild(muteVideo);
-
-        muteVideo.onclick = function() {
-            if (muteVideo.className.indexOf('unmute-video') != -1) {
-                muteVideo.className = muteVideo.className.replace('unmute-video selected', 'mute-video');
-                mediaElement.muted = false;
-                mediaElement.volume = 1;
-                mediaElement.play();
-                if (config.onUnMuted) config.onUnMuted('video');
-            } else {
-                muteVideo.className = muteVideo.className.replace('mute-video', 'unmute-video selected');
-                mediaElement.muted = true;
-                mediaElement.volume = 0;
-                mediaElement.pause();
-                if (config.onMuted) config.onMuted('video');
-            }
-        };
-    }
-
-    if (buttons.has('take-snapshot')) {
-        var takeSnapshot = document.createElement('div');
-        takeSnapshot.className = 'control take-snapshot';
-        mediaControls.appendChild(takeSnapshot);
-
-        takeSnapshot.onclick = function() {
-            if (config.onTakeSnapshot) config.onTakeSnapshot();
-        };
-    }
-
-    if (buttons.has('stop')) {
-        var stop = document.createElement('div');
-        stop.className = 'control stop';
-        mediaControls.appendChild(stop);
-
-        stop.onclick = function() {
-            mediaElementContainer.style.opacity = 0;
-            setTimeout(function() {
-                if (mediaElementContainer.parentNode) {
-                    mediaElementContainer.parentNode.removeChild(mediaElementContainer);
-                }
-            }, 800);
-            if (config.onStopped) config.onStopped();
-        };
-    }
-
-    var volumeControl = document.createElement('div');
-    volumeControl.className = 'volume-control';
-
-    if (buttons.has('record-audio')) {
-        var recordAudio = document.createElement('div');
-        recordAudio.className = 'control ' + (config.toggle.has('record-audio') ? 'stop-recording-audio selected' : 'record-audio');
-        volumeControl.appendChild(recordAudio);
-
-        recordAudio.onclick = function() {
-            if (recordAudio.className.indexOf('stop-recording-audio') != -1) {
-                recordAudio.className = recordAudio.className.replace('stop-recording-audio selected', 'record-audio');
-                if (config.onRecordingStopped) config.onRecordingStopped('audio');
-            } else {
-                recordAudio.className = recordAudio.className.replace('record-audio', 'stop-recording-audio selected');
-                if (config.onRecordingStarted) config.onRecordingStarted('audio');
-            }
-        };
-    }
-
-    if (buttons.has('record-video')) {
-        var recordVideo = document.createElement('div');
-        recordVideo.className = 'control ' + (config.toggle.has('record-video') ? 'stop-recording-video selected' : 'record-video');
-        volumeControl.appendChild(recordVideo);
-
-        recordVideo.onclick = function() {
-            if (recordVideo.className.indexOf('stop-recording-video') != -1) {
-                recordVideo.className = recordVideo.className.replace('stop-recording-video selected', 'record-video');
-                if (config.onRecordingStopped) config.onRecordingStopped('video');
-            } else {
-                recordVideo.className = recordVideo.className.replace('record-video', 'stop-recording-video selected');
-                if (config.onRecordingStarted) config.onRecordingStarted('video');
-            }
-        };
-    }
-
-    if (buttons.has('volume-slider')) {
-        var volumeSlider = document.createElement('div');
-        volumeSlider.className = 'control volume-slider';
-        volumeControl.appendChild(volumeSlider);
-
-        var slider = document.createElement('input');
-        slider.type = 'range';
-        slider.min = 0;
-        slider.max = 100;
-        slider.value = 100;
-        slider.onchange = function() {
-            mediaElement.volume = '.' + slider.value.toString().substr(0, 1);
-        };
-        volumeSlider.appendChild(slider);
-    }
-
-    if (buttons.has('full-screen')) {
-        var zoom = document.createElement('div');
-        zoom.className = 'control ' + (config.toggle.has('zoom-in') ? 'zoom-out selected' : 'zoom-in');
-
-        if (!slider && !recordAudio && !recordVideo && zoom) {
-            mediaControls.insertBefore(zoom, mediaControls.firstChild);
-        } else volumeControl.appendChild(zoom);
-
-        zoom.onclick = function() {
-            if (zoom.className.indexOf('zoom-out') != -1) {
-                zoom.className = zoom.className.replace('zoom-out selected', 'zoom-in');
-                exitFullScreen();
-            } else {
-                zoom.className = zoom.className.replace('zoom-in', 'zoom-out selected');
-                launchFullscreen(mediaElementContainer);
-            }
-        };
-
-        function launchFullscreen(element) {
-            if (element.requestFullscreen) {
-                element.requestFullscreen();
-            } else if (element.mozRequestFullScreen) {
-                element.mozRequestFullScreen();
-            } else if (element.webkitRequestFullscreen) {
-                element.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
-            }
-        }
-
-        function exitFullScreen() {
-            if (document.fullscreen) {
-                document.cancelFullScreen();
-            }
-
-            if (document.mozFullScreen) {
-                document.mozCancelFullScreen();
-            }
-
-            if (document.webkitIsFullScreen) {
-                document.webkitCancelFullScreen();
-            }
-        }
-
-        function screenStateChange(e) {
-            if (e.srcElement != mediaElementContainer) return;
-
-            var isFullScreeMode = document.webkitIsFullScreen || document.mozFullScreen || document.fullscreen;
-
-            mediaElementContainer.style.width = (isFullScreeMode ? (window.innerWidth - 20) : config.width) + 'px';
-            mediaElementContainer.style.display = isFullScreeMode ? 'block' : 'inline-block';
-
-            if (config.height) {
-                mediaBox.style.height = (isFullScreeMode ? (window.innerHeight - 20) : config.height) + 'px';
-            }
-
-            if (!isFullScreeMode && config.onZoomout) config.onZoomout();
-            if (isFullScreeMode && config.onZoomin) config.onZoomin();
-
-            if (!isFullScreeMode && zoom.className.indexOf('zoom-out') != -1) {
-                zoom.className = zoom.className.replace('zoom-out selected', 'zoom-in');
-                if (config.onZoomout) config.onZoomout();
-            }
-            setTimeout(adjustControls, 1000);
-        }
-
-        document.addEventListener('fullscreenchange', screenStateChange, false);
-        document.addEventListener('mozfullscreenchange', screenStateChange, false);
-        document.addEventListener('webkitfullscreenchange', screenStateChange, false);
-    }
-
-    if (buttons.has('volume-slider') || buttons.has('full-screen') || buttons.has('record-audio') || buttons.has('record-video')) {
-        mediaElementContainer.appendChild(volumeControl);
-    }
-
-    var mediaBox = document.createElement('div');
-    mediaBox.className = 'media-box';
-    mediaElementContainer.appendChild(mediaBox);
-
-    mediaBox.appendChild(mediaElement);
-
-    if (!config.width) config.width = (innerWidth / 2) - 50;
-
-    mediaElementContainer.style.width = config.width + 'px';
-
-    if (config.height) {
-        mediaBox.style.height = config.height + 'px';
-    }
-
-    mediaBox.querySelector('video').style.maxHeight = innerHeight + 'px';
-
-    var times = 0;
-
-    function adjustControls() {
-        mediaControls.style.marginLeft = (mediaElementContainer.clientWidth - mediaControls.clientWidth - 2) + 'px';
-
-        if (slider) {
-            slider.style.width = (mediaElementContainer.clientWidth / 3) + 'px';
-            volumeControl.style.marginLeft = (mediaElementContainer.clientWidth / 3 - 30) + 'px';
-
-            if (zoom) zoom.style['border-top-right-radius'] = '5px';
-        } else {
-            volumeControl.style.marginLeft = (mediaElementContainer.clientWidth - volumeControl.clientWidth - 2) + 'px';
-        }
-
-        volumeControl.style.marginTop = (mediaElementContainer.clientHeight - volumeControl.clientHeight - 2) + 'px';
-
-        if (times < 10) {
-            times++;
-            setTimeout(adjustControls, 1000);
-        } else times = 0;
-    }
-
-    if (config.showOnMouseEnter || typeof config.showOnMouseEnter === 'undefined') {
-        mediaElementContainer.onmouseenter = mediaElementContainer.onmousedown = function() {
-            adjustControls();
-            mediaControls.style.opacity = 1;
-            volumeControl.style.opacity = 1;
-        };
-
-        mediaElementContainer.onmouseleave = function() {
-            mediaControls.style.opacity = 0;
-            volumeControl.style.opacity = 0;
-        };
-    } else {
-        setTimeout(function() {
-            adjustControls();
-            setTimeout(function() {
-                mediaControls.style.opacity = 1;
-                volumeControl.style.opacity = 1;
-            }, 300);
-        }, 700);
-    }
-
-    adjustControls();
-
-    mediaElementContainer.toggle = function(clasName) {
-        if (typeof clasName != 'string') {
-            for (var i = 0; i < clasName.length; i++) {
-                mediaElementContainer.toggle(clasName[i]);
-            }
-            return;
-        }
-
-        if (clasName == 'mute-audio' && muteAudio) muteAudio.onclick();
-        if (clasName == 'mute-video' && muteVideo) muteVideo.onclick();
-
-        if (clasName == 'record-audio' && recordAudio) recordAudio.onclick();
-        if (clasName == 'record-video' && recordVideo) recordVideo.onclick();
-
-        if (clasName == 'stop' && stop) stop.onclick();
-
-        return this;
-    };
-
-    mediaElementContainer.media = mediaElement;
-
-    return mediaElementContainer;
-}
-
-// __________________
-// getAudioElement.js
-
-function getAudioElement(mediaElement, config) {
-    config = config || {};
-
-    if (!mediaElement.nodeName || (mediaElement.nodeName.toLowerCase() != 'audio' && mediaElement.nodeName.toLowerCase() != 'video')) {
-        var mediaStream = mediaElement;
-        mediaElement = document.createElement('audio');
-        mediaElement[!!navigator.mozGetUserMedia ? 'mozSrcObject' : 'src'] = !!navigator.mozGetUserMedia ? mediaStream : window.webkitURL.createObjectURL(mediaStream);
-    }
-
-    config.toggle = config.toggle || [];
-    config.toggle.has = function(element) {
-        return config.toggle.indexOf(element) !== -1;
-    };
-
-    mediaElement.controls = false;
-    mediaElement.play();
-
-    var mediaElementContainer = document.createElement('div');
-    mediaElementContainer.className = 'media-container';
-
-    var mediaControls = document.createElement('div');
-    mediaControls.className = 'media-controls';
-    mediaElementContainer.appendChild(mediaControls);
-
-    var muteAudio = document.createElement('div');
-    muteAudio.className = 'control ' + (config.toggle.has('mute-audio') ? 'unmute-audio selected' : 'mute-audio');
-    mediaControls.appendChild(muteAudio);
-
-    muteAudio.style['border-top-left-radius'] = '5px';
-
-    muteAudio.onclick = function() {
-        if (muteAudio.className.indexOf('unmute-audio') != -1) {
-            muteAudio.className = muteAudio.className.replace('unmute-audio selected', 'mute-audio');
-            mediaElement.muted = false;
-            if (config.onUnMuted) config.onUnMuted('audio');
-        } else {
-            muteAudio.className = muteAudio.className.replace('mute-audio', 'unmute-audio selected');
-            mediaElement.muted = true;
-            if (config.onMuted) config.onMuted('audio');
-        }
-    };
-
-    if (!config.buttons || (config.buttons && config.buttons.indexOf('record-audio') != -1)) {
-        var recordAudio = document.createElement('div');
-        recordAudio.className = 'control ' + (config.toggle.has('record-audio') ? 'stop-recording-audio selected' : 'record-audio');
-        mediaControls.appendChild(recordAudio);
-
-        recordAudio.onclick = function() {
-            if (recordAudio.className.indexOf('stop-recording-audio') != -1) {
-                recordAudio.className = recordAudio.className.replace('stop-recording-audio selected', 'record-audio');
-                if (config.onRecordingStopped) config.onRecordingStopped('audio');
-            } else {
-                recordAudio.className = recordAudio.className.replace('record-audio', 'stop-recording-audio selected');
-                if (config.onRecordingStarted) config.onRecordingStarted('audio');
-            }
-        };
-    }
-
-    var volumeSlider = document.createElement('div');
-    volumeSlider.className = 'control volume-slider';
-    volumeSlider.style.width = 'auto';
-    mediaControls.appendChild(volumeSlider);
-
-    var slider = document.createElement('input');
-    slider.style.marginTop = '11px';
-    slider.style.width = ' 200px';
-
-    if (config.buttons && config.buttons.indexOf('record-audio') == -1) {
-        slider.style.width = ' 241px';
-    }
-
-    slider.type = 'range';
-    slider.min = 0;
-    slider.max = 100;
-    slider.value = 100;
-    slider.onchange = function() {
-        mediaElement.volume = '.' + slider.value.toString().substr(0, 1);
-    };
-    volumeSlider.appendChild(slider);
-
-    var stop = document.createElement('div');
-    stop.className = 'control stop';
-    mediaControls.appendChild(stop);
-
-    stop.onclick = function() {
-        mediaElementContainer.style.opacity = 0;
-        setTimeout(function() {
-            if (mediaElementContainer.parentNode) {
-                mediaElementContainer.parentNode.removeChild(mediaElementContainer);
-            }
-        }, 800);
-        if (config.onStopped) config.onStopped();
-    };
-
-    stop.style['border-top-right-radius'] = '5px';
-    stop.style['border-bottom-right-radius'] = '5px';
-
-    var mediaBox = document.createElement('div');
-    mediaBox.className = 'media-box';
-    mediaElementContainer.appendChild(mediaBox);
-
-    var h2 = document.createElement('h2');
-    h2.innerHTML = config.title || 'Audio Element';
-    h2.setAttribute('style', 'position: absolute;color: rgb(160, 160, 160);font-size: 20px;text-shadow: 1px 1px rgb(255, 255, 255);padding:0;margin:0;');
-    mediaBox.appendChild(h2);
-
-    mediaBox.appendChild(mediaElement);
-
-    mediaElementContainer.style.width = '329px';
-    mediaBox.style.height = '90px';
-
-    h2.style.width = mediaElementContainer.style.width;
-    h2.style.height = '50px';
-    h2.style.overflow = 'hidden';
-
-    var times = 0;
-
-    function adjustControls() {
-        mediaControls.style.marginLeft = (mediaElementContainer.clientWidth - mediaControls.clientWidth - 7) + 'px';
-        mediaControls.style.marginTop = (mediaElementContainer.clientHeight - mediaControls.clientHeight - 6) + 'px';
-        if (times < 10) {
-            times++;
-            setTimeout(adjustControls, 1000);
-        } else times = 0;
-    }
-
-    if (config.showOnMouseEnter || typeof config.showOnMouseEnter === 'undefined') {
-        mediaElementContainer.onmouseenter = mediaElementContainer.onmousedown = function() {
-            adjustControls();
-            mediaControls.style.opacity = 1;
-        };
-
-        mediaElementContainer.onmouseleave = function() {
-            mediaControls.style.opacity = 0;
-        };
-    } else {
-        setTimeout(function() {
-            adjustControls();
-            setTimeout(function() {
-                mediaControls.style.opacity = 1;
-            }, 300);
-        }, 700);
-    }
-
-    adjustControls();
-
-    mediaElementContainer.toggle = function(clasName) {
-        if (typeof clasName != 'string') {
-            for (var i = 0; i < clasName.length; i++) {
-                mediaElementContainer.toggle(clasName[i]);
-            }
-            return;
-        }
-
-        if (clasName == 'mute-audio' && muteAudio) muteAudio.onclick();
-        if (clasName == 'record-audio' && recordAudio) recordAudio.onclick();
-        if (clasName == 'stop' && stop) stop.onclick();
-
-        return this;
-    };
-
-    mediaElementContainer.media = mediaElement;
-
-    return mediaElementContainer;
-}
-
-/***/ }),
-/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -7827,9 +7328,9 @@ function getAudioElement(mediaElement, config) {
  * Module dependencies.
  */
 
-var url = __webpack_require__(107);
+var url = __webpack_require__(106);
 var parser = __webpack_require__(17);
-var Manager = __webpack_require__(31);
+var Manager = __webpack_require__(32);
 var debug = __webpack_require__(3)('socket.io-client');
 
 /**
@@ -7929,12 +7430,12 @@ exports.connect = lookup;
  * @api public
  */
 
-exports.Manager = __webpack_require__(31);
-exports.Socket = __webpack_require__(33);
+exports.Manager = __webpack_require__(32);
+exports.Socket = __webpack_require__(34);
 
 
 /***/ }),
-/* 107 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {
@@ -7942,7 +7443,7 @@ exports.Socket = __webpack_require__(33);
  * Module dependencies.
  */
 
-var parseuri = __webpack_require__(30);
+var parseuri = __webpack_require__(31);
 var debug = __webpack_require__(3)('socket.io-client:url');
 
 /**
@@ -8016,7 +7517,7 @@ function url (uri, loc) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 108 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/*global Blob,File*/
@@ -8025,8 +7526,8 @@ function url (uri, loc) {
  * Module requirements
  */
 
-var isArray = __webpack_require__(29);
-var isBuf = __webpack_require__(34);
+var isArray = __webpack_require__(30);
+var isBuf = __webpack_require__(35);
 
 /**
  * Replaces every Buffer | ArrayBuffer in packet with a numbered placeholder.
@@ -8164,7 +7665,7 @@ exports.removeBlobs = function(data, callback) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 109 */
+/* 108 */
 /***/ (function(module, exports) {
 
 
@@ -8259,9 +7760,9 @@ module.exports = function (css) {
 
 
 /***/ }),
+/* 109 */,
 /* 110 */,
-/* 111 */,
-/* 112 */
+/* 111 */
 /***/ (function(module, exports) {
 
 module.exports = toArray
@@ -8280,10 +7781,10 @@ function toArray(list, index) {
 
 
 /***/ }),
+/* 112 */,
 /* 113 */,
 /* 114 */,
-/* 115 */,
-/* 116 */
+/* 115 */
 /***/ (function(module, exports) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
@@ -8292,7 +7793,7 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ }),
-/* 117 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module, global) {var __WEBPACK_AMD_DEFINE_RESULT__;/*! https://mths.be/wtf8 v1.0.0 by @mathias */
@@ -8529,7 +8030,7 @@ module.exports = __webpack_amd_options__;
 
 }(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36)(module), __webpack_require__(2)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(37)(module), __webpack_require__(2)))
 
 /***/ })
 ]);

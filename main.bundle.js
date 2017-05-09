@@ -11,11 +11,11 @@ module.exports = "<div>\n  <h1 x-large class=\"sample-content\">Your Content Her
 /***/ 104:
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"experiment\">\n    <div class=\"make-center\">\n        <input type=\"text\" id=\"room-id\" value=\"abcdef\">\n        <button id=\"open-room\" (click)=\"openRoom()\">Open Room</button>\n        <button id=\"join-room\" (click)=\"joinRoom()\">Join Room</button>\n        <button id=\"open-or-join-room\" (click)=\"toggleImage()\">Auto Open Or Join Room</button>\n\n        <br><br>\n        <input type=\"text\" id=\"input-text-chat\" placeholder=\"Enter Text Chat\" disabled>\n        <button id=\"share-file\" disabled (click)=\"toggleImage()\">Share File</button>\n        <br><br>\n        <button id=\"btn-leave-room\" disabled (click)=\"toggleImage()\">Leave /or close the room</button>\n\n        <div id=\"room-urls\" style=\"text-align: center;display: none;background: #F1EDED;margin: 15px -10px;border: 1px solid rgb(189, 189, 189);border-left: 0;border-right: 0;\"></div>\n    </div>\n\n    <div id=\"chat-container\">\n        <div id=\"file-container\"></div>\n        <div class=\"chat-output\"></div>\n    </div>\n\n    <div #videoscontainer></div>\n</section>"
+module.exports = "<section class=\"experiment\">\n    <div class=\"make-center\">\n        <input type=\"text\" id=\"room-id\" value=\"abcdef\">\n        <button id=\"open-room\" (click)=\"openRoom()\">Open Room</button>\n        <button id=\"join-room\" (click)=\"joinRoom()\">Join Room</button>\n        <button id=\"open-or-join-room\" (click)=\"toggleImage()\">Auto Open Or Join Room</button>\n\n        <br><br>\n        <input type=\"text\" id=\"input-text-chat\" placeholder=\"Enter Text Chat\" disabled>\n        <button id=\"share-file\" disabled (click)=\"toggleImage()\">Share File</button>\n        <br><br>\n        <button id=\"btn-leave-room\" disabled (click)=\"toggleImage()\">Leave /or close the room</button>\n\n        <div id=\"room-urls\" style=\"text-align: center;display: none;background: #F1EDED;margin: 15px -10px;border: 1px solid rgb(189, 189, 189);border-left: 0;border-right: 0;\"></div>\n    </div>\n\n    <div id=\"chat-container\">\n        <div id=\"file-container\"></div>\n        <div class=\"chat-output\"></div>\n    </div>\n\n    <div #videoscontainer id=\"videos-container\"></div>\n    <div class=\"local-video\" *ngIf=\"localVideo;\">\n\n\n        <label> Teacher</label><br/>\n        <video width=\"450\" height=\"250\" controls #localStream [src]=\"localVideo\" autoplay>\n\n\n\n\n\n\n    </video>\n    </div>\n    <div class=\"remote-videos\" *ngIf=\"students;\">\n\n\n        <div *ngFor=\"let stream of students\">\n\n\n            <label> Students</label><br/>\n\n\n            <video width=\"250\" height=\"150\" controls #localStream [src]=\"stream\" autoplay>\n\n\n\n      </video>\n\n        </div>\n\n    </div>\n\n\n\n</section>"
 
 /***/ }),
 
-/***/ 110:
+/***/ 109:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
@@ -24,7 +24,7 @@ module.exports = "<section class=\"experiment\">\n    <div class=\"make-center\"
 var content = __webpack_require__(86);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(35)(content, {});
+var update = __webpack_require__(36)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -42,7 +42,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 111:
+/***/ 110:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
@@ -51,7 +51,7 @@ if(false) {
 var content = __webpack_require__(90);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(35)(content, {});
+var update = __webpack_require__(36)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -69,7 +69,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 113:
+/***/ 112:
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -84,7 +84,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 114:
+/***/ 113:
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -99,7 +99,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 115:
+/***/ 114:
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -111,6 +111,506 @@ if(false) {
             module.exports = result.toString();
         }
     
+
+/***/ }),
+
+/***/ 117:
+/***/ (function(module, exports) {
+
+// Last time updated at August 19, 2014, 14:46:23
+
+// Muaz Khan     - www.MuazKhan.com
+// MIT License   - www.WebRTC-Experiment.com/licence
+// Documentation - github.com/muaz-khan/WebRTC-Experiment/tree/master/getMediaElement
+
+// Demo          - www.WebRTC-Experiment.com/getMediaElement
+
+document.write('<link rel="stylesheet" href="https://cdn.WebRTC-Experiment.com/getMediaElement.css">');
+
+// __________________
+// getMediaElement.js
+
+window.getMediaElement = function(mediaElement, config) {
+    config = config || {};
+
+    if (!mediaElement.nodeName || (mediaElement.nodeName.toLowerCase() != 'audio' && mediaElement.nodeName.toLowerCase() != 'video')) {
+        if (!mediaElement.getVideoTracks().length) {
+            return getAudioElement(mediaElement, config);
+        }
+
+        var mediaStream = mediaElement;
+        mediaElement = document.createElement(mediaStream.getVideoTracks().length ? 'video' : 'audio');
+        mediaElement[!!navigator.mozGetUserMedia ? 'mozSrcObject' : 'src'] = !!navigator.mozGetUserMedia ? mediaStream : window.webkitURL.createObjectURL(mediaStream);
+    }
+
+    if (mediaElement.nodeName && mediaElement.nodeName.toLowerCase() == 'audio') {
+        return getAudioElement(mediaElement, config);
+    }
+
+    mediaElement.controls = false;
+
+    var buttons = config.buttons || ['mute-audio', 'mute-video', 'full-screen', 'volume-slider', 'stop'];
+    buttons.has = function(element) {
+        return buttons.indexOf(element) !== -1;
+    };
+
+    config.toggle = config.toggle || [];
+    config.toggle.has = function(element) {
+        return config.toggle.indexOf(element) !== -1;
+    };
+
+    var mediaElementContainer = document.createElement('div');
+    mediaElementContainer.className = 'media-container';
+
+    var mediaControls = document.createElement('div');
+    mediaControls.className = 'media-controls';
+    mediaElementContainer.appendChild(mediaControls);
+
+    if (buttons.has('mute-audio')) {
+        var muteAudio = document.createElement('div');
+        muteAudio.className = 'control ' + (config.toggle.has('mute-audio') ? 'unmute-audio selected' : 'mute-audio');
+        mediaControls.appendChild(muteAudio);
+
+        muteAudio.onclick = function() {
+            if (muteAudio.className.indexOf('unmute-audio') != -1) {
+                muteAudio.className = muteAudio.className.replace('unmute-audio selected', 'mute-audio');
+                mediaElement.muted = false;
+                mediaElement.volume = 1;
+                if (config.onUnMuted) config.onUnMuted('audio');
+            } else {
+                muteAudio.className = muteAudio.className.replace('mute-audio', 'unmute-audio selected');
+                mediaElement.muted = true;
+                mediaElement.volume = 0;
+                if (config.onMuted) config.onMuted('audio');
+            }
+        };
+    }
+
+    if (buttons.has('mute-video')) {
+        var muteVideo = document.createElement('div');
+        muteVideo.className = 'control ' + (config.toggle.has('mute-video') ? 'unmute-video selected' : 'mute-video');
+        mediaControls.appendChild(muteVideo);
+
+        muteVideo.onclick = function() {
+            if (muteVideo.className.indexOf('unmute-video') != -1) {
+                muteVideo.className = muteVideo.className.replace('unmute-video selected', 'mute-video');
+                mediaElement.muted = false;
+                mediaElement.volume = 1;
+                mediaElement.play();
+                if (config.onUnMuted) config.onUnMuted('video');
+            } else {
+                muteVideo.className = muteVideo.className.replace('mute-video', 'unmute-video selected');
+                mediaElement.muted = true;
+                mediaElement.volume = 0;
+                mediaElement.pause();
+                if (config.onMuted) config.onMuted('video');
+            }
+        };
+    }
+
+    if (buttons.has('take-snapshot')) {
+        var takeSnapshot = document.createElement('div');
+        takeSnapshot.className = 'control take-snapshot';
+        mediaControls.appendChild(takeSnapshot);
+
+        takeSnapshot.onclick = function() {
+            if (config.onTakeSnapshot) config.onTakeSnapshot();
+        };
+    }
+
+    if (buttons.has('stop')) {
+        var stop = document.createElement('div');
+        stop.className = 'control stop';
+        mediaControls.appendChild(stop);
+
+        stop.onclick = function() {
+            mediaElementContainer.style.opacity = 0;
+            setTimeout(function() {
+                if (mediaElementContainer.parentNode) {
+                    mediaElementContainer.parentNode.removeChild(mediaElementContainer);
+                }
+            }, 800);
+            if (config.onStopped) config.onStopped();
+        };
+    }
+
+    var volumeControl = document.createElement('div');
+    volumeControl.className = 'volume-control';
+
+    if (buttons.has('record-audio')) {
+        var recordAudio = document.createElement('div');
+        recordAudio.className = 'control ' + (config.toggle.has('record-audio') ? 'stop-recording-audio selected' : 'record-audio');
+        volumeControl.appendChild(recordAudio);
+
+        recordAudio.onclick = function() {
+            if (recordAudio.className.indexOf('stop-recording-audio') != -1) {
+                recordAudio.className = recordAudio.className.replace('stop-recording-audio selected', 'record-audio');
+                if (config.onRecordingStopped) config.onRecordingStopped('audio');
+            } else {
+                recordAudio.className = recordAudio.className.replace('record-audio', 'stop-recording-audio selected');
+                if (config.onRecordingStarted) config.onRecordingStarted('audio');
+            }
+        };
+    }
+
+    if (buttons.has('record-video')) {
+        var recordVideo = document.createElement('div');
+        recordVideo.className = 'control ' + (config.toggle.has('record-video') ? 'stop-recording-video selected' : 'record-video');
+        volumeControl.appendChild(recordVideo);
+
+        recordVideo.onclick = function() {
+            if (recordVideo.className.indexOf('stop-recording-video') != -1) {
+                recordVideo.className = recordVideo.className.replace('stop-recording-video selected', 'record-video');
+                if (config.onRecordingStopped) config.onRecordingStopped('video');
+            } else {
+                recordVideo.className = recordVideo.className.replace('record-video', 'stop-recording-video selected');
+                if (config.onRecordingStarted) config.onRecordingStarted('video');
+            }
+        };
+    }
+
+    if (buttons.has('volume-slider')) {
+        var volumeSlider = document.createElement('div');
+        volumeSlider.className = 'control volume-slider';
+        volumeControl.appendChild(volumeSlider);
+
+        var slider = document.createElement('input');
+        slider.type = 'range';
+        slider.min = 0;
+        slider.max = 100;
+        slider.value = 100;
+        slider.onchange = function() {
+            mediaElement.volume = '.' + slider.value.toString().substr(0, 1);
+        };
+        volumeSlider.appendChild(slider);
+    }
+
+    if (buttons.has('full-screen')) {
+        var zoom = document.createElement('div');
+        zoom.className = 'control ' + (config.toggle.has('zoom-in') ? 'zoom-out selected' : 'zoom-in');
+
+        if (!slider && !recordAudio && !recordVideo && zoom) {
+            mediaControls.insertBefore(zoom, mediaControls.firstChild);
+        } else volumeControl.appendChild(zoom);
+
+        zoom.onclick = function() {
+            if (zoom.className.indexOf('zoom-out') != -1) {
+                zoom.className = zoom.className.replace('zoom-out selected', 'zoom-in');
+                exitFullScreen();
+            } else {
+                zoom.className = zoom.className.replace('zoom-in', 'zoom-out selected');
+                launchFullscreen(mediaElementContainer);
+            }
+        };
+
+        function launchFullscreen(element) {
+            if (element.requestFullscreen) {
+                element.requestFullscreen();
+            } else if (element.mozRequestFullScreen) {
+                element.mozRequestFullScreen();
+            } else if (element.webkitRequestFullscreen) {
+                element.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+            }
+        }
+
+        function exitFullScreen() {
+            if (document.fullscreen) {
+                document.cancelFullScreen();
+            }
+
+            if (document.mozFullScreen) {
+                document.mozCancelFullScreen();
+            }
+
+            if (document.webkitIsFullScreen) {
+                document.webkitCancelFullScreen();
+            }
+        }
+
+        function screenStateChange(e) {
+            if (e.srcElement != mediaElementContainer) return;
+
+            var isFullScreeMode = document.webkitIsFullScreen || document.mozFullScreen || document.fullscreen;
+
+            mediaElementContainer.style.width = (isFullScreeMode ? (window.innerWidth - 20) : config.width) + 'px';
+            mediaElementContainer.style.display = isFullScreeMode ? 'block' : 'inline-block';
+
+            if (config.height) {
+                mediaBox.style.height = (isFullScreeMode ? (window.innerHeight - 20) : config.height) + 'px';
+            }
+
+            if (!isFullScreeMode && config.onZoomout) config.onZoomout();
+            if (isFullScreeMode && config.onZoomin) config.onZoomin();
+
+            if (!isFullScreeMode && zoom.className.indexOf('zoom-out') != -1) {
+                zoom.className = zoom.className.replace('zoom-out selected', 'zoom-in');
+                if (config.onZoomout) config.onZoomout();
+            }
+            setTimeout(adjustControls, 1000);
+        }
+
+        document.addEventListener('fullscreenchange', screenStateChange, false);
+        document.addEventListener('mozfullscreenchange', screenStateChange, false);
+        document.addEventListener('webkitfullscreenchange', screenStateChange, false);
+    }
+
+    if (buttons.has('volume-slider') || buttons.has('full-screen') || buttons.has('record-audio') || buttons.has('record-video')) {
+        mediaElementContainer.appendChild(volumeControl);
+    }
+
+    var mediaBox = document.createElement('div');
+    mediaBox.className = 'media-box';
+    mediaElementContainer.appendChild(mediaBox);
+
+    mediaBox.appendChild(mediaElement);
+
+    if (!config.width) config.width = (innerWidth / 2) - 50;
+
+    mediaElementContainer.style.width = config.width + 'px';
+
+    if (config.height) {
+        mediaBox.style.height = config.height + 'px';
+    }
+
+    mediaBox.querySelector('video').style.maxHeight = innerHeight + 'px';
+
+    var times = 0;
+
+    function adjustControls() {
+        mediaControls.style.marginLeft = (mediaElementContainer.clientWidth - mediaControls.clientWidth - 2) + 'px';
+
+        if (slider) {
+            slider.style.width = (mediaElementContainer.clientWidth / 3) + 'px';
+            volumeControl.style.marginLeft = (mediaElementContainer.clientWidth / 3 - 30) + 'px';
+
+            if (zoom) zoom.style['border-top-right-radius'] = '5px';
+        } else {
+            volumeControl.style.marginLeft = (mediaElementContainer.clientWidth - volumeControl.clientWidth - 2) + 'px';
+        }
+
+        volumeControl.style.marginTop = (mediaElementContainer.clientHeight - volumeControl.clientHeight - 2) + 'px';
+
+        if (times < 10) {
+            times++;
+            setTimeout(adjustControls, 1000);
+        } else times = 0;
+    }
+
+    if (config.showOnMouseEnter || typeof config.showOnMouseEnter === 'undefined') {
+        mediaElementContainer.onmouseenter = mediaElementContainer.onmousedown = function() {
+            adjustControls();
+            mediaControls.style.opacity = 1;
+            volumeControl.style.opacity = 1;
+        };
+
+        mediaElementContainer.onmouseleave = function() {
+            mediaControls.style.opacity = 0;
+            volumeControl.style.opacity = 0;
+        };
+    } else {
+        setTimeout(function() {
+            adjustControls();
+            setTimeout(function() {
+                mediaControls.style.opacity = 1;
+                volumeControl.style.opacity = 1;
+            }, 300);
+        }, 700);
+    }
+
+    adjustControls();
+
+    mediaElementContainer.toggle = function(clasName) {
+        if (typeof clasName != 'string') {
+            for (var i = 0; i < clasName.length; i++) {
+                mediaElementContainer.toggle(clasName[i]);
+            }
+            return;
+        }
+
+        if (clasName == 'mute-audio' && muteAudio) muteAudio.onclick();
+        if (clasName == 'mute-video' && muteVideo) muteVideo.onclick();
+
+        if (clasName == 'record-audio' && recordAudio) recordAudio.onclick();
+        if (clasName == 'record-video' && recordVideo) recordVideo.onclick();
+
+        if (clasName == 'stop' && stop) stop.onclick();
+
+        return this;
+    };
+
+    mediaElementContainer.media = mediaElement;
+
+    return mediaElementContainer;
+}
+
+// __________________
+// getAudioElement.js
+
+function getAudioElement(mediaElement, config) {
+    config = config || {};
+
+    if (!mediaElement.nodeName || (mediaElement.nodeName.toLowerCase() != 'audio' && mediaElement.nodeName.toLowerCase() != 'video')) {
+        var mediaStream = mediaElement;
+        mediaElement = document.createElement('audio');
+        mediaElement[!!navigator.mozGetUserMedia ? 'mozSrcObject' : 'src'] = !!navigator.mozGetUserMedia ? mediaStream : window.webkitURL.createObjectURL(mediaStream);
+    }
+
+    config.toggle = config.toggle || [];
+    config.toggle.has = function(element) {
+        return config.toggle.indexOf(element) !== -1;
+    };
+
+    mediaElement.controls = false;
+    mediaElement.play();
+
+    var mediaElementContainer = document.createElement('div');
+    mediaElementContainer.className = 'media-container';
+
+    var mediaControls = document.createElement('div');
+    mediaControls.className = 'media-controls';
+    mediaElementContainer.appendChild(mediaControls);
+
+    var muteAudio = document.createElement('div');
+    muteAudio.className = 'control ' + (config.toggle.has('mute-audio') ? 'unmute-audio selected' : 'mute-audio');
+    mediaControls.appendChild(muteAudio);
+
+    muteAudio.style['border-top-left-radius'] = '5px';
+
+    muteAudio.onclick = function() {
+        if (muteAudio.className.indexOf('unmute-audio') != -1) {
+            muteAudio.className = muteAudio.className.replace('unmute-audio selected', 'mute-audio');
+            mediaElement.muted = false;
+            if (config.onUnMuted) config.onUnMuted('audio');
+        } else {
+            muteAudio.className = muteAudio.className.replace('mute-audio', 'unmute-audio selected');
+            mediaElement.muted = true;
+            if (config.onMuted) config.onMuted('audio');
+        }
+    };
+
+    if (!config.buttons || (config.buttons && config.buttons.indexOf('record-audio') != -1)) {
+        var recordAudio = document.createElement('div');
+        recordAudio.className = 'control ' + (config.toggle.has('record-audio') ? 'stop-recording-audio selected' : 'record-audio');
+        mediaControls.appendChild(recordAudio);
+
+        recordAudio.onclick = function() {
+            if (recordAudio.className.indexOf('stop-recording-audio') != -1) {
+                recordAudio.className = recordAudio.className.replace('stop-recording-audio selected', 'record-audio');
+                if (config.onRecordingStopped) config.onRecordingStopped('audio');
+            } else {
+                recordAudio.className = recordAudio.className.replace('record-audio', 'stop-recording-audio selected');
+                if (config.onRecordingStarted) config.onRecordingStarted('audio');
+            }
+        };
+    }
+
+    var volumeSlider = document.createElement('div');
+    volumeSlider.className = 'control volume-slider';
+    volumeSlider.style.width = 'auto';
+    mediaControls.appendChild(volumeSlider);
+
+    var slider = document.createElement('input');
+    slider.style.marginTop = '11px';
+    slider.style.width = ' 200px';
+
+    if (config.buttons && config.buttons.indexOf('record-audio') == -1) {
+        slider.style.width = ' 241px';
+    }
+
+    slider.type = 'range';
+    slider.min = 0;
+    slider.max = 100;
+    slider.value = 100;
+    slider.onchange = function() {
+        mediaElement.volume = '.' + slider.value.toString().substr(0, 1);
+    };
+    volumeSlider.appendChild(slider);
+
+    var stop = document.createElement('div');
+    stop.className = 'control stop';
+    mediaControls.appendChild(stop);
+
+    stop.onclick = function() {
+        mediaElementContainer.style.opacity = 0;
+        setTimeout(function() {
+            if (mediaElementContainer.parentNode) {
+                mediaElementContainer.parentNode.removeChild(mediaElementContainer);
+            }
+        }, 800);
+        if (config.onStopped) config.onStopped();
+    };
+
+    stop.style['border-top-right-radius'] = '5px';
+    stop.style['border-bottom-right-radius'] = '5px';
+
+    var mediaBox = document.createElement('div');
+    mediaBox.className = 'media-box';
+    mediaElementContainer.appendChild(mediaBox);
+
+    var h2 = document.createElement('h2');
+    h2.innerHTML = config.title || 'Audio Element';
+    h2.setAttribute('style', 'position: absolute;color: rgb(160, 160, 160);font-size: 20px;text-shadow: 1px 1px rgb(255, 255, 255);padding:0;margin:0;');
+    mediaBox.appendChild(h2);
+
+    mediaBox.appendChild(mediaElement);
+
+    mediaElementContainer.style.width = '329px';
+    mediaBox.style.height = '90px';
+
+    h2.style.width = mediaElementContainer.style.width;
+    h2.style.height = '50px';
+    h2.style.overflow = 'hidden';
+
+    var times = 0;
+
+    function adjustControls() {
+        mediaControls.style.marginLeft = (mediaElementContainer.clientWidth - mediaControls.clientWidth - 7) + 'px';
+        mediaControls.style.marginTop = (mediaElementContainer.clientHeight - mediaControls.clientHeight - 6) + 'px';
+        if (times < 10) {
+            times++;
+            setTimeout(adjustControls, 1000);
+        } else times = 0;
+    }
+
+    if (config.showOnMouseEnter || typeof config.showOnMouseEnter === 'undefined') {
+        mediaElementContainer.onmouseenter = mediaElementContainer.onmousedown = function() {
+            adjustControls();
+            mediaControls.style.opacity = 1;
+        };
+
+        mediaElementContainer.onmouseleave = function() {
+            mediaControls.style.opacity = 0;
+        };
+    } else {
+        setTimeout(function() {
+            adjustControls();
+            setTimeout(function() {
+                mediaControls.style.opacity = 1;
+            }, 300);
+        }, 700);
+    }
+
+    adjustControls();
+
+    mediaElementContainer.toggle = function(clasName) {
+        if (typeof clasName != 'string') {
+            for (var i = 0; i < clasName.length; i++) {
+                mediaElementContainer.toggle(clasName[i]);
+            }
+            return;
+        }
+
+        if (clasName == 'mute-audio' && muteAudio) muteAudio.onclick();
+        if (clasName == 'record-audio' && recordAudio) recordAudio.onclick();
+        if (clasName == 'stop' && stop) stop.onclick();
+
+        return this;
+    };
+
+    mediaElementContainer.media = mediaElement;
+
+    return mediaElementContainer;
+}
 
 /***/ }),
 
@@ -5765,7 +6265,7 @@ window.RTCMultiConnection = function(roomid, forceOptions, io) {
     })(this);
 
 };
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(46), __webpack_require__(2)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(47), __webpack_require__(2)))
 
 /***/ }),
 
@@ -5832,10 +6332,24 @@ AppState = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
 /***/ }),
 
 /***/ 19:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(5))(62)
+
+/***/ }),
+
+/***/ 2:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(0))(94)
+
+/***/ }),
+
+/***/ 20:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(4);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return decorateModuleRef; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return ENV_PROVIDERS; });
@@ -5875,21 +6389,14 @@ var ENV_PROVIDERS = PROVIDERS.slice();
 
 /***/ }),
 
-/***/ 2:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = (__webpack_require__(0))(94)
-
-/***/ }),
-
-/***/ 20:
+/***/ 21:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(5))(205)
 
 /***/ }),
 
-/***/ 21:
+/***/ 22:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5900,7 +6407,7 @@ module.exports = (__webpack_require__(5))(205)
 
 /***/ }),
 
-/***/ 22:
+/***/ 23:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5911,7 +6418,7 @@ module.exports = (__webpack_require__(5))(205)
 
 /***/ }),
 
-/***/ 23:
+/***/ 24:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5936,13 +6443,6 @@ module.exports = (__webpack_require__(5))(420)
 
 /***/ }),
 
-/***/ 39:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = (__webpack_require__(5))(202)
-
-/***/ }),
-
 /***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5953,21 +6453,21 @@ module.exports = (__webpack_require__(5))(42)
 /***/ 40:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(5))(204)
+module.exports = (__webpack_require__(5))(202)
 
 /***/ }),
 
-/***/ 46:
+/***/ 41:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(399)
+module.exports = (__webpack_require__(5))(204)
 
 /***/ }),
 
 /***/ 47:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(5))(62)
+module.exports = (__webpack_require__(0))(399)
 
 /***/ }),
 
@@ -6032,7 +6532,7 @@ AppComponent = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
         selector: 'app',
         encapsulation: __WEBPACK_IMPORTED_MODULE_1__angular_core__["ViewEncapsulation"].None,
         styles: [
-            __webpack_require__(113)
+            __webpack_require__(112)
         ],
         template: "\n    <nav>\n      <a [routerLink]=\" ['./'] \"\n        routerLinkActive=\"active\" [routerLinkActiveOptions]= \"{exact: true}\">\n        Index\n      </a>\n      <a [routerLink]=\" ['./home'] \"\n        routerLinkActive=\"active\" [routerLinkActiveOptions]= \"{exact: true}\">\n        Home\n      </a>\n\n      <a [routerLink]=\" ['./teacher'] \"\n        routerLinkActive=\"active\" [routerLinkActiveOptions]= \"{exact: true}\">\n        Teacher\n      </a>\n    </nav>\n\n    <main>\n      <router-outlet></router-outlet>\n    </main>\n\n    <pre class=\"app-state\">this.appState.state = {{ appState.state | json }}</pre>\n\n    <footer>\n      <span>WebPack Angular 2 Starter by <a [href]=\"url\">@AngularClass</a></span>\n      <div>\n        <a [href]=\"url\">\n          <img [src]=\"angularclassLogo\" width=\"25%\">\n        </a>\n      </div>\n    </footer>\n  "
     }),
@@ -6067,24 +6567,24 @@ AppComponent = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(124);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angularclass_hmr__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angularclass_hmr__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angularclass_hmr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__angularclass_hmr__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_router__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__environment__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_router__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__environment__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_routes__ = __webpack_require__(73);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_component__ = __webpack_require__(70);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__app_resolver__ = __webpack_require__(72);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__app_service__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__home__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__teacher__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__no_content__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__styles_styles_scss__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__home__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__teacher__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__no_content__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__styles_styles_scss__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__styles_styles_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__styles_styles_scss__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__styles_headings_css__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__styles_headings_css__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__styles_headings_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__styles_headings_css__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 
@@ -6224,9 +6724,9 @@ var APP_RESOLVER_PROVIDERS = [
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__teacher__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__no_content__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__teacher__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__no_content__ = __webpack_require__(23);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ROUTES; });
 
 
@@ -6287,7 +6787,7 @@ HomeComponent = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
             __WEBPACK_IMPORTED_MODULE_3__title__["a" /* Title */]
         ],
         // Our list of styles in our component. We may add more to compose many styles together
-        styles: [__webpack_require__(114)],
+        styles: [__webpack_require__(113)],
         // Every Angular template is first compiled by the browser before Angular runs it's compiler
         template: __webpack_require__(103)
     }),
@@ -6316,7 +6816,7 @@ HomeComponent = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(40);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Title; });
 
 
@@ -6376,13 +6876,14 @@ NoContentComponent = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__rtcMultiConnection_js__ = __webpack_require__(118);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__rtcMultiConnection_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__rtcMultiConnection_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rtcmulticonnection_v3_dist_mediaElements_js__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rtcmulticonnection_v3_dist_mediaElements_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rtcmulticonnection_v3_dist_mediaElements_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_socket_io_client__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_socket_io_client__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__rtcMultiConnection_js__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__rtcMultiConnection_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__rtcMultiConnection_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mediaElements_js__ = __webpack_require__(117);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mediaElements_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__mediaElements_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_socket_io_client__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_socket_io_client__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TeacherComponent; });
 
 
@@ -6390,17 +6891,20 @@ NoContentComponent = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
 
 
 
-// @ViewChild('videoscontainer') el: ElementRef;
-// import 'socket.io-client';
-// import io = require('socket.io-client');
+
 var TeacherComponent = (function () {
-    function TeacherComponent(route, elementRef) {
+    // public getMedia = new getMediaElement();
+    function TeacherComponent(route, elementRef, sanitizer) {
         this.route = route;
         this.elementRef = elementRef;
-        this.io = __WEBPACK_IMPORTED_MODULE_5_socket_io_client__;
-        this.connection = new RTCMultiConnection('', '', __WEBPACK_IMPORTED_MODULE_5_socket_io_client__);
+        this.sanitizer = sanitizer;
+        this.io = __WEBPACK_IMPORTED_MODULE_6_socket_io_client__;
+        this.students = [];
+        this.localVideo = '';
+        // public mediaElement = this.mediaElement;
+        this.connection = new RTCMultiConnection('', '', __WEBPACK_IMPORTED_MODULE_6_socket_io_client__);
         this.connection.socketURL = 'https://rtcmulticonnection.herokuapp.com:443/';
-        var socket = __WEBPACK_IMPORTED_MODULE_5_socket_io_client__('https://rtcmulticonnection.herokuapp.com:443/');
+        var socket = __WEBPACK_IMPORTED_MODULE_6_socket_io_client__('https://rtcmulticonnection.herokuapp.com:443/');
         socket.on('connect', function () {
             console.log('connect to scoket');
         });
@@ -6412,25 +6916,33 @@ var TeacherComponent = (function () {
             video: true,
             data: true
         };
-        // this.connection.sdpConstraints.mandatory = {
-        //   OfferToReceiveAudio: true,
-        //   OfferToReceiveVideo: true
-        // };
+        this.connection.sdpConstraints.mandatory = {
+            OfferToReceiveAudio: true,
+            OfferToReceiveVideo: true
+        };
         this.connection.videosContainer = document.getElementById('videoscontainer');
         this.connection.onstream = function (event) {
-            var width = 200;
+            var width = 100;
             var mediaElement = event.mediaElement;
-            // let mediaElement = this.getMediaElement(event.mediaElement, {
-            //   title: event.userid,
-            //   buttons: ['full-screen'],
-            //   width,
-            //   showOnMouseEnter: false
-            // });
-            this.elementRef.nativeElement.appendChild(mediaElement);
+            var el = getMediaElement(event.mediaElement, {
+                title: event.userid,
+                buttons: ['full-screen'],
+                width: width,
+                showOnMouseEnter: true
+            });
+            if (event.type === 'remote') {
+                // event.blobURL = event.blobURL + event.streamid;
+                this.students.push(this.sanitize(event.blobURL));
+            }
+            else if (event.type === 'local') {
+                // event.blobURL = event.blobURL + event.streamid;
+                this.localVideo = this.sanitize(event.blobURL);
+            }
+            // this.elementRef.nativeElement.appendChild(mediaElement);
             setTimeout(function () {
                 // mediaElement.media.play();
             }, 5000);
-            mediaElement.id = event.streamid;
+            // this.mediaElement.id = event.streamid;
         }.bind(this);
         this.connection.onstreamended = function (event) {
             var mediaElement = document.getElementById(event.streamid);
@@ -6448,10 +6960,10 @@ var TeacherComponent = (function () {
         }.bind(this);
         this.connection.onclose = function () {
             if (this.connection.getAllParticipants().length) {
-                document.querySelector('h1').innerHTML = 'You are still connected with: ' + this.connection.getAllParticipants().join(', ');
+                // document.querySelector('h1').innerHTML = 'You are still connected with: ' + this.connection.getAllParticipants().join(', ');
             }
             else {
-                document.querySelector('h1').innerHTML = 'Seems session has been closed or all participants left.';
+                // document.querySelector('h1').innerHTML = 'Seems session has been closed or all participants left.';
             }
         }.bind(this);
         this.connection.onEntireSessionClosed = function (event) {
@@ -6492,7 +7004,7 @@ var TeacherComponent = (function () {
     };
     TeacherComponent.prototype.openRoom = function () {
         this.disableInputButtons();
-        console.log('socket obj :', __WEBPACK_IMPORTED_MODULE_5_socket_io_client__);
+        console.log('socket obj :', __WEBPACK_IMPORTED_MODULE_6_socket_io_client__);
         console.log('connection obj :', this.connection);
         this.connection.open('11111', function () {
             // this.showRoomURL('11111');
@@ -6526,6 +7038,9 @@ var TeacherComponent = (function () {
         roomURLsDiv.innerHTML = html;
         roomURLsDiv.style.display = 'block';
     };
+    TeacherComponent.prototype.sanitize = function (url) {
+        return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    };
     TeacherComponent.prototype.asyncDataWithWebpack = function () {
         var _this = this;
         // you can also async load mock data with 'es6-promise-loader'
@@ -6544,10 +7059,12 @@ var TeacherComponent = (function () {
 TeacherComponent = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
         selector: 'teacher',
-        styles: [__webpack_require__(115)],
+        styles: [__webpack_require__(114)],
         template: __webpack_require__(104),
     }),
-    __WEBPACK_IMPORTED_MODULE_0_tslib__["b" /* __metadata */]("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_router__["ActivatedRoute"], __WEBPACK_IMPORTED_MODULE_1__angular_core__["ElementRef"]])
+    __WEBPACK_IMPORTED_MODULE_0_tslib__["b" /* __metadata */]("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_router__["ActivatedRoute"],
+        __WEBPACK_IMPORTED_MODULE_1__angular_core__["ElementRef"],
+        __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__["DomSanitizer"]])
 ], TeacherComponent);
 
 
@@ -6560,8 +7077,8 @@ TeacherComponent = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_environment__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angularclass_hmr__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_environment__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angularclass_hmr__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angularclass_hmr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__angularclass_hmr__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app__ = __webpack_require__(48);
 /* harmony export (immutable) */ __webpack_exports__["main"] = main;
