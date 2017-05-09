@@ -6428,7 +6428,7 @@ var TeacherComponent = (function () {
             // });
             this.elementRef.nativeElement.appendChild(mediaElement);
             setTimeout(function () {
-                mediaElement.media.play();
+                // mediaElement.media.play();
             }, 5000);
             mediaElement.id = event.streamid;
         }.bind(this);
@@ -6444,7 +6444,7 @@ var TeacherComponent = (function () {
             // document.getElementById('share-file').disabled = false;
             // document.getElementById('input-text-chat').disabled = false;
             // document.getElementById('btn-leave-room').disabled = false;
-            document.querySelector('h1').innerHTML = 'You are connected with: ' + this.connection.getAllParticipants().join(', ');
+            // document.querySelector('h1').innerHTML = 'You are connected with: ' + this.connection.getAllParticipants().join(', ');
         }.bind(this);
         this.connection.onclose = function () {
             if (this.connection.getAllParticipants().length) {
@@ -6495,7 +6495,7 @@ var TeacherComponent = (function () {
         console.log('socket obj :', __WEBPACK_IMPORTED_MODULE_5_socket_io_client__);
         console.log('connection obj :', this.connection);
         this.connection.open('11111', function () {
-            this.showRoomURL('11111');
+            // this.showRoomURL('11111');
         });
     };
     ;
