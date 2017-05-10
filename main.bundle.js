@@ -8,46 +8,32 @@ module.exports = (__webpack_require__(2))(42)
 
 /***/ }),
 
-/***/ 10:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = (__webpack_require__(2))(469)
-
-/***/ }),
-
 /***/ 100:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = (__webpack_require__(2))(436)
-
-/***/ }),
-
-/***/ 101:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(2))(453)
 
 /***/ }),
 
-/***/ 102:
+/***/ 101:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(2))(460)
 
 /***/ }),
 
-/***/ 103:
+/***/ 102:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(2))(499)
 
 /***/ }),
 
-/***/ 104:
+/***/ 103:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app_module__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app_module__ = __webpack_require__(159);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__app_module__["a"]; });
 // App
 
@@ -55,7 +41,14 @@ module.exports = (__webpack_require__(2))(499)
 
 /***/ }),
 
-/***/ 123:
+/***/ 12:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(2))(459)
+
+/***/ }),
+
+/***/ 122:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(2))(203)
@@ -65,24 +58,17 @@ module.exports = (__webpack_require__(2))(203)
 /***/ 13:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(2))(459)
-
-/***/ }),
-
-/***/ 14:
-/***/ (function(module, exports, __webpack_require__) {
-
 module.exports = (__webpack_require__(2))(62)
 
 /***/ }),
 
-/***/ 159:
+/***/ 158:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_service__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_service__ = __webpack_require__(71);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 
 /*
@@ -111,13 +97,19 @@ AppComponent = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
         selector: 'app',
         encapsulation: __WEBPACK_IMPORTED_MODULE_1__angular_core__["ViewEncapsulation"].None,
         styles: [
-            __webpack_require__(203)
+            __webpack_require__(197)
         ],
-        template: "\n  \n    <nav>\n      <a [routerLink]=\" ['./'] \"\n        routerLinkActive=\"active\" [routerLinkActiveOptions]= \"{exact: true}\">\n        Index\n      </a>\n      <a [routerLink]=\" ['./home'] \"\n        routerLinkActive=\"active\" [routerLinkActiveOptions]= \"{exact: true}\">\n        Home\n      </a>\n\n      <a [routerLink]=\" ['./teacher'] \"\n        routerLinkActive=\"active\" [routerLinkActiveOptions]= \"{exact: true}\">\n        Teacher\n      </a>\n    </nav>\n\n    <main>\n      <router-outlet></router-outlet>\n    </main>\n\n  \n\n    <footer>\n     \n    </footer>\n  "
+        template: "\n  \n   \n    <main>\n      <router-outlet></router-outlet>\n    </main>\n\n  \n\n    <footer>\n     \n    </footer>\n  "
     }),
     __WEBPACK_IMPORTED_MODULE_0_tslib__["b" /* __metadata */]("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__app_service__["a" /* AppState */]])
 ], AppComponent);
 
+// <nav>
+//   <a[routerLink]=" ['./class'] "
+// routerLinkActive = "active"[routerLinkActiveOptions] = "{exact: true}" >
+//   Class
+//   < /a>
+//   < /nav>
 /*
  * Please review the https://github.com/AngularClass/angular2-examples/ repo for
  * more angular app examples that you may copy/paste
@@ -141,38 +133,37 @@ AppComponent = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
 
 /***/ }),
 
-/***/ 160:
+/***/ 159:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(91);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angularclass_hmr__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angularclass_hmr__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angularclass_hmr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__angularclass_hmr__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_router__ = __webpack_require__(92);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_platform_browser_animations__ = __webpack_require__(143);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__environment__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_routes__ = __webpack_require__(162);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__app_component__ = __webpack_require__(159);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__app_resolver__ = __webpack_require__(161);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__app_service__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__home__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__teacher__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__no_content__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_material__ = __webpack_require__(142);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__angular2_material_card__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__angular2_material_button__ = __webpack_require__(145);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__angular2_material_icon__ = __webpack_require__(158);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__angular_material_prebuilt_themes_indigo_pink_css__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__angular_material_prebuilt_themes_indigo_pink_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__angular_material_prebuilt_themes_indigo_pink_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__angular_flex_layout__ = __webpack_require__(139);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__styles_styles_scss__ = __webpack_require__(199);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__styles_styles_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22__styles_styles_scss__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__styles_headings_css__ = __webpack_require__(200);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__styles_headings_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23__styles_headings_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_router__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_platform_browser_animations__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__environment__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_routes__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__app_component__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__app_resolver__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__app_service__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__teacher__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__no_content__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_material__ = __webpack_require__(141);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular2_material_card__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__angular2_material_button__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__angular2_material_icon__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__angular_material_prebuilt_themes_indigo_pink_css__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__angular_material_prebuilt_themes_indigo_pink_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__angular_material_prebuilt_themes_indigo_pink_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__angular_flex_layout__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__styles_styles_scss__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__styles_styles_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21__styles_styles_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__styles_headings_css__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__styles_headings_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22__styles_headings_css__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 
 
@@ -188,7 +179,6 @@ AppComponent = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
 
 
 // App is our top level component
-
 
 
 
@@ -255,9 +245,9 @@ AppModule = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
         declarations: [
             __WEBPACK_IMPORTED_MODULE_10__app_component__["a" /* AppComponent */],
             // AboutComponent,
-            __WEBPACK_IMPORTED_MODULE_14__teacher__["a" /* TeacherComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__home__["a" /* HomeComponent */],
-            __WEBPACK_IMPORTED_MODULE_15__no_content__["a" /* NoContentComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__teacher__["a" /* TeacherComponent */],
+            // HomeComponent,
+            __WEBPACK_IMPORTED_MODULE_14__no_content__["a" /* NoContentComponent */],
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["BrowserModule"],
@@ -265,8 +255,8 @@ AppModule = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
             __WEBPACK_IMPORTED_MODULE_3__angular_http__["HttpModule"],
             __WEBPACK_IMPORTED_MODULE_6__angular_router__["RouterModule"].forRoot(__WEBPACK_IMPORTED_MODULE_9__app_routes__["a" /* ROUTES */], { useHash: true, preloadingStrategy: __WEBPACK_IMPORTED_MODULE_6__angular_router__["PreloadAllModules"] }),
             __WEBPACK_IMPORTED_MODULE_7__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
-            __WEBPACK_IMPORTED_MODULE_17__angular2_material_card__["a" /* MdCardModule */], __WEBPACK_IMPORTED_MODULE_18__angular2_material_button__["a" /* MdButtonModule */], __WEBPACK_IMPORTED_MODULE_19__angular2_material_icon__["a" /* MdIconModule */],
-            __WEBPACK_IMPORTED_MODULE_21__angular_flex_layout__["a" /* FlexLayoutModule */]
+            __WEBPACK_IMPORTED_MODULE_16__angular2_material_card__["a" /* MdCardModule */], __WEBPACK_IMPORTED_MODULE_17__angular2_material_button__["a" /* MdButtonModule */], __WEBPACK_IMPORTED_MODULE_18__angular2_material_icon__["a" /* MdIconModule */],
+            __WEBPACK_IMPORTED_MODULE_20__angular_flex_layout__["a" /* FlexLayoutModule */]
         ],
         providers: [
             __WEBPACK_IMPORTED_MODULE_8__environment__["b" /* ENV_PROVIDERS */],
@@ -281,15 +271,15 @@ AppModule = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
 
 /***/ }),
 
-/***/ 161:
+/***/ 160:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_of__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_of__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_of__);
 /* unused harmony export DataResolver */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return APP_RESOLVER_PROVIDERS; });
@@ -317,136 +307,33 @@ var APP_RESOLVER_PROVIDERS = [
 
 /***/ }),
 
-/***/ 162:
+/***/ 161:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__teacher__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__no_content__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__teacher__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__no_content__ = __webpack_require__(72);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ROUTES; });
 
 
-
 var ROUTES = [
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_0__home__["a" /* HomeComponent */] },
-    { path: 'home', component: __WEBPACK_IMPORTED_MODULE_0__home__["a" /* HomeComponent */] },
+    // { path: '', component: TeacherComponent },
+    // { path: 'home', component: HomeComponent },
     // { path: 'about', component: AboutComponent },
-    { path: 'teacher', component: __WEBPACK_IMPORTED_MODULE_1__teacher__["a" /* TeacherComponent */] },
+    { path: 'class', component: __WEBPACK_IMPORTED_MODULE_0__teacher__["a" /* TeacherComponent */] },
     // { path: 'detail', loadChildren: './+detail#DetailModule' },
     // { path: 'barrel', loadChildren: './+barrel#BarrelModule' },
-    { path: '**', component: __WEBPACK_IMPORTED_MODULE_2__no_content__["a" /* NoContentComponent */] },
+    { path: '**', component: __WEBPACK_IMPORTED_MODULE_1__no_content__["a" /* NoContentComponent */] },
 ];
 
 
 /***/ }),
 
-/***/ 163:
+/***/ 162:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_service__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__title__ = __webpack_require__(164);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
-
-
-
-
-var HomeComponent = (function () {
-    // TypeScript public modifiers
-    function HomeComponent(appState, title) {
-        this.appState = appState;
-        this.title = title;
-        // Set our default values
-        this.localState = { value: '' };
-    }
-    HomeComponent.prototype.ngOnInit = function () {
-        console.log('hello `Home` component');
-        // this.title.getData().subscribe(data => this.data = data);
-    };
-    HomeComponent.prototype.submitState = function (value) {
-        console.log('submitState', value);
-        this.appState.set('value', value);
-        this.localState.value = '';
-    };
-    return HomeComponent;
-}());
-HomeComponent = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
-        // The selector is what angular internally uses
-        // for `document.querySelectorAll(selector)` in our index.html
-        // where, in this case, selector is the string 'home'
-        selector: 'home',
-        // We need to tell Angular's Dependency Injection which providers are in our app.
-        providers: [
-            __WEBPACK_IMPORTED_MODULE_3__title__["a" /* Title */]
-        ],
-        // Our list of styles in our component. We may add more to compose many styles together
-        styles: [__webpack_require__(204)],
-        // Every Angular template is first compiled by the browser before Angular runs it's compiler
-        template: __webpack_require__(193)
-    }),
-    __WEBPACK_IMPORTED_MODULE_0_tslib__["b" /* __metadata */]("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__app_service__["a" /* AppState */],
-        __WEBPACK_IMPORTED_MODULE_3__title__["a" /* Title */]])
-], HomeComponent);
-
-
-
-/***/ }),
-
-/***/ 164:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__title_service__ = __webpack_require__(165);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__title_service__["a"]; });
-
-
-
-/***/ }),
-
-/***/ 165:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(22);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Title; });
-
-
-
-var Title = (function () {
-    function Title(http) {
-        this.http = http;
-        this.value = 'Angular 2';
-    }
-    Title.prototype.getData = function () {
-        console.log('Title#getData(): Get Data');
-        // return this.http.get('/assets/data.json')
-        // .map(res => res.json());
-        return {
-            value: 'AngularClass'
-        };
-    };
-    return Title;
-}());
-Title = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
-    __WEBPACK_IMPORTED_MODULE_0_tslib__["b" /* __metadata */]("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_http__["Http"]])
-], Title);
-
-
-
-/***/ }),
-
-/***/ 166:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NoContentComponent; });
 
@@ -467,19 +354,19 @@ NoContentComponent = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
 
 /***/ }),
 
-/***/ 167:
+/***/ 163:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(92);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__rtcMultiConnection_js__ = __webpack_require__(209);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__rtcMultiConnection_js__ = __webpack_require__(202);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__rtcMultiConnection_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__rtcMultiConnection_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mediaElements_js__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mediaElements_js__ = __webpack_require__(201);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mediaElements_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__mediaElements_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_socket_io_client__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_socket_io_client__ = __webpack_require__(189);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_socket_io_client__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TeacherComponent; });
 
@@ -646,7 +533,7 @@ var TeacherComponent = (function () {
         // you would do this if you don't want the mock-data bundled
         // remember that 'es6-promise-loader' is a promise
         setTimeout(function () {
-            __webpack_require__.e/* import() */(0).then(__webpack_require__.bind(null, 356))
+            __webpack_require__.e/* import() */(0).then(__webpack_require__.bind(null, 349))
                 .then(function (json) {
                 console.log('async mockData', json);
                 _this.localState = json;
@@ -658,8 +545,8 @@ var TeacherComponent = (function () {
 TeacherComponent = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
         selector: 'teacher',
-        styles: [__webpack_require__(205)],
-        template: __webpack_require__(194),
+        styles: [__webpack_require__(198)],
+        template: __webpack_require__(188),
     }),
     __WEBPACK_IMPORTED_MODULE_0_tslib__["b" /* __metadata */]("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_router__["ActivatedRoute"],
         __WEBPACK_IMPORTED_MODULE_1__angular_core__["ElementRef"],
@@ -670,16 +557,16 @@ TeacherComponent = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
 
 /***/ }),
 
-/***/ 168:
+/***/ 164:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(123);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_environment__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angularclass_hmr__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(122);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_environment__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angularclass_hmr__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angularclass_hmr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__angularclass_hmr__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app__ = __webpack_require__(103);
 /* harmony export (immutable) */ __webpack_exports__["main"] = main;
 /*
  * Angular bootstraping
@@ -737,10 +624,10 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angularclass_hmr__["bootloade
 
 /***/ }),
 
-/***/ 176:
+/***/ 172:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(20)(undefined);
+exports = module.exports = __webpack_require__(21)(undefined);
 // imports
 
 
@@ -752,10 +639,10 @@ exports.push([module.i, "/* this file will be extracted to main dist folder and 
 
 /***/ }),
 
-/***/ 177:
+/***/ 173:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(20)(undefined);
+exports = module.exports = __webpack_require__(21)(undefined);
 // imports
 
 
@@ -767,25 +654,10 @@ exports.push([module.i, "html, body{\n  height: 100%;\n  font-family: Arial, Hel
 
 /***/ }),
 
-/***/ 178:
+/***/ 174:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(20)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, "/*styles for home content only*/", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ 179:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(20)(undefined);
+exports = module.exports = __webpack_require__(21)(undefined);
 // imports
 
 
@@ -797,10 +669,10 @@ exports.push([module.i, "        /*video {\n            object-fit: fill;\n     
 
 /***/ }),
 
-/***/ 180:
+/***/ 175:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(20)(undefined);
+exports = module.exports = __webpack_require__(21)(undefined);
 // imports
 
 
@@ -812,30 +684,23 @@ exports.push([module.i, "h1 {\n  color: #00BCD4;\n}", ""]);
 
 /***/ }),
 
+/***/ 188:
+/***/ (function(module, exports) {
+
+module.exports = "<section class=\"experiment\">\n    <md-card class=\"teacherCard\">\n        <md-card-title>Welcome to Remote School</md-card-title>\n    </md-card>\n    <md-card class=\"teacherCard\">\n        <button id=\"open-room\" md-button (click)=\"openRoom()\">Start Class</button>\n        <button id=\"join-room\" md-button (click)=\"joinRoom()\">Join Class</button>\n    </md-card>\n    <!--<div class=\"make-center\">\n        <input type=\"text\" id=\"room-id\" value=\"abcdef\">\n        <button id=\"open-room\" md-button (click)=\"openRoom()\">Open Room</button>\n        <button id=\"join-room\" (click)=\"joinRoom()\">Join Room</button>\n       \n\n        <br><br>\n        <input type=\"text\" id=\"input-text-chat\" placeholder=\"Enter Text Chat\" disabled>\n        <button id=\"share-file\" disabled (click)=\"toggleImage()\">Share File</button>\n        <br><br>\n        <button id=\"btn-leave-room\" disabled (click)=\"toggleImage()\">Leave /or close the room</button>\n\n        <div id=\"room-urls\" style=\"text-align: center;display: none;background: #F1EDED;margin: 15px -10px;border: 1px solid rgb(189, 189, 189);border-left: 0;border-right: 0;\"></div>\n    </div>-->\n\n    <div id=\"chat-container\">\n        <div id=\"file-container\"></div>\n        <div class=\"chat-output\"></div>\n    </div>\n    <md-card class=\"teacherCard\" *ngIf=\"localVideo;\">\n        <md-card-title>Teacher</md-card-title>\n        <md-card-content>\n            <video controls #localStream [src]=\"localVideo\" autoplay muted=\"true\" class=\"teacherVideo\">\n            </video>\n        </md-card-content>\n\n    </md-card>\n    <md-card class=\"teacherCard\" *ngIf=\"students.length>0;\">\n        <md-card-title>Students</md-card-title>\n        <md-card-content>\n\n\n            <video controls #localStream [src]=\"stream.src\" *ngFor=\"let stream of students\" autoplay class=\"studentVideo\">\n        </video>\n        </md-card-content>\n\n\n    </md-card>\n\n\n\n</section>"
+
+/***/ }),
+
 /***/ 193:
-/***/ (function(module, exports) {
-
-module.exports = "<div>\n    <h1 x-large class=\"sample-content\">Your Content Here</h1>\n\n    <hr>\n\n    <div>\n        For hot module reloading run\n        <pre>npm run start:hmr</pre>\n    </div>\n\n    <hr>\n\n    <div>\n        <h4>Local State</h4>\n\n        <form (ngSubmit)=\"submitState(localState.value)\" autocomplete=\"off\">\n\n            <input [value]=\"localState.value\" (input)=\"localState.value = $event.target.value\" placeholder=\"Submit Local State to App State\" autofocus>\n\n            <button>Submit Value</button>\n            <md-card>\n                <button md-button>FLAT</button>\n                <button md-raised-button>RAISED</button>\n            </md-card>\n        </form>\n        <!--\n        <input type=\"text\" [value]=\"localState.value\" (input)=\"localState.value = $event.target.value\" autofocus>\n        Rather than wiring up two-way data-binding ourselves with [value] and (input)\n        we can use Angular's [(ngModel)] syntax\n        <input type=\"text\" name=\"textInput\" [(ngModel)]=\"localState.value\" autofocus>\n      -->\n\n        <pre>this.localState = {{ localState | json }}</pre>\n\n    </div>\n\n</div>"
-
-/***/ }),
-
-/***/ 194:
-/***/ (function(module, exports) {
-
-module.exports = "<section class=\"experiment\">\n    <md-card class=\"teacherCard\">\n        <button id=\"open-room\" md-button (click)=\"openRoom()\">Open Room</button>\n        <button id=\"join-room\" md-button (click)=\"joinRoom()\">Join Room</button>\n    </md-card>\n    <!--<div class=\"make-center\">\n        <input type=\"text\" id=\"room-id\" value=\"abcdef\">\n        <button id=\"open-room\" md-button (click)=\"openRoom()\">Open Room</button>\n        <button id=\"join-room\" (click)=\"joinRoom()\">Join Room</button>\n       \n\n        <br><br>\n        <input type=\"text\" id=\"input-text-chat\" placeholder=\"Enter Text Chat\" disabled>\n        <button id=\"share-file\" disabled (click)=\"toggleImage()\">Share File</button>\n        <br><br>\n        <button id=\"btn-leave-room\" disabled (click)=\"toggleImage()\">Leave /or close the room</button>\n\n        <div id=\"room-urls\" style=\"text-align: center;display: none;background: #F1EDED;margin: 15px -10px;border: 1px solid rgb(189, 189, 189);border-left: 0;border-right: 0;\"></div>\n    </div>-->\n\n    <div id=\"chat-container\">\n        <div id=\"file-container\"></div>\n        <div class=\"chat-output\"></div>\n    </div>\n    <md-card class=\"teacherCard\" *ngIf=\"localVideo;\">\n        <md-card-title>Teacher</md-card-title>\n        <md-card-content>\n            <video controls #localStream [src]=\"localVideo\" autoplay muted=\"true\" class=\"teacherVideo\">\n            </video>\n        </md-card-content>\n\n    </md-card>\n    <md-card class=\"teacherCard\" *ngIf=\"students.length>0;\">\n        <md-card-title>Students</md-card-title>\n        <md-card-content>\n\n\n            <video controls #localStream [src]=\"stream.src\" *ngFor=\"let stream of students\" autoplay class=\"studentVideo\">\n        </video>\n        </md-card-content>\n\n\n    </md-card>\n\n\n\n</section>"
-
-/***/ }),
-
-/***/ 199:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(176);
+var content = __webpack_require__(172);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(86)(content, {});
+var update = __webpack_require__(85)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -853,23 +718,16 @@ if(false) {
 
 /***/ }),
 
-/***/ 2:
-/***/ (function(module, exports) {
-
-module.exports = vendor_lib;
-
-/***/ }),
-
-/***/ 200:
+/***/ 194:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(180);
+var content = __webpack_require__(175);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(86)(content, {});
+var update = __webpack_require__(85)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -887,11 +745,11 @@ if(false) {
 
 /***/ }),
 
-/***/ 203:
+/***/ 197:
 /***/ (function(module, exports, __webpack_require__) {
 
 
-        var result = __webpack_require__(177);
+        var result = __webpack_require__(173);
 
         if (typeof result === "string") {
             module.exports = result;
@@ -902,11 +760,11 @@ if(false) {
 
 /***/ }),
 
-/***/ 204:
+/***/ 198:
 /***/ (function(module, exports, __webpack_require__) {
 
 
-        var result = __webpack_require__(178);
+        var result = __webpack_require__(174);
 
         if (typeof result === "string") {
             module.exports = result;
@@ -917,22 +775,14 @@ if(false) {
 
 /***/ }),
 
-/***/ 205:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ 2:
+/***/ (function(module, exports) {
 
-
-        var result = __webpack_require__(179);
-
-        if (typeof result === "string") {
-            module.exports = result;
-        } else {
-            module.exports = result.toString();
-        }
-    
+module.exports = vendor_lib;
 
 /***/ }),
 
-/***/ 208:
+/***/ 201:
 /***/ (function(module, exports) {
 
 // Last time updated at August 19, 2014, 14:46:23
@@ -1432,7 +1282,7 @@ function getAudioElement(mediaElement, config) {
 
 /***/ }),
 
-/***/ 209:
+/***/ 202:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7083,18 +6933,18 @@ window.RTCMultiConnection = function(roomid, forceOptions, io) {
     })(this);
 
 };
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(98), __webpack_require__(4)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(97), __webpack_require__(4)))
 
 /***/ }),
 
-/***/ 210:
+/***/ 203:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(2))(12)
 
 /***/ }),
 
-/***/ 22:
+/***/ 24:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(2))(202)
@@ -7108,25 +6958,139 @@ module.exports = (__webpack_require__(2))(73)
 
 /***/ }),
 
-/***/ 348:
+/***/ 341:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(2))(412)
 
 /***/ }),
 
-/***/ 349:
+/***/ 342:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(2))(418)
 
 /***/ }),
 
-/***/ 35:
+/***/ 343:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(2))(425)
+
+/***/ }),
+
+/***/ 344:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(2))(430)
+
+/***/ }),
+
+/***/ 345:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(2))(463)
+
+/***/ }),
+
+/***/ 346:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(2))(504)
+
+/***/ }),
+
+/***/ 347:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(2))(507)
+
+/***/ }),
+
+/***/ 348:
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+
+/***/ 39:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(2))(0)
+
+/***/ }),
+
+/***/ 4:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(0))(94)
+
+/***/ }),
+
+/***/ 41:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(2))(420)
+
+/***/ }),
+
+/***/ 42:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return decorateModuleRef; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return ENV_PROVIDERS; });
+// Angular 2
+
+
+// Environment Providers
+var PROVIDERS = [];
+// Angular debug tools in the dev console
+// https://github.com/angular/angular/blob/86405345b781a9dc2438c0fbe3e9409245647019/TOOLS_JS.md
+var _decorateModuleRef = function (value) { return value; };
+if (false) {
+    enableProdMode();
+    // Production
+    _decorateModuleRef = function (modRef) {
+        disableDebugTools();
+        return modRef;
+    };
+    PROVIDERS = PROVIDERS.slice();
+}
+else {
+    _decorateModuleRef = function (modRef) {
+        var appRef = modRef.injector.get(__WEBPACK_IMPORTED_MODULE_1__angular_core__["ApplicationRef"]);
+        var cmpRef = appRef.components[0];
+        var _ng = window.ng;
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["enableDebugTools"])(cmpRef);
+        window.ng.probe = _ng.probe;
+        window.ng.coreTokens = _ng.coreTokens;
+        return modRef;
+    };
+    // Development
+    PROVIDERS = PROVIDERS.slice();
+}
+var decorateModuleRef = _decorateModuleRef;
+var ENV_PROVIDERS = PROVIDERS.slice();
+
+
+/***/ }),
+
+/***/ 43:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(2))(205)
+
+/***/ }),
+
+/***/ 71:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppState; });
 
@@ -7170,126 +7134,12 @@ AppState = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
 
 /***/ }),
 
-/***/ 350:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = (__webpack_require__(2))(425)
-
-/***/ }),
-
-/***/ 351:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = (__webpack_require__(2))(430)
-
-/***/ }),
-
-/***/ 352:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = (__webpack_require__(2))(463)
-
-/***/ }),
-
-/***/ 353:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = (__webpack_require__(2))(504)
-
-/***/ }),
-
-/***/ 354:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = (__webpack_require__(2))(507)
-
-/***/ }),
-
-/***/ 355:
-/***/ (function(module, exports) {
-
-/* (ignored) */
-
-/***/ }),
-
-/***/ 4:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = (__webpack_require__(0))(94)
-
-/***/ }),
-
-/***/ 40:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = (__webpack_require__(2))(0)
-
-/***/ }),
-
-/***/ 42:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = (__webpack_require__(2))(420)
-
-/***/ }),
-
-/***/ 43:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return decorateModuleRef; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return ENV_PROVIDERS; });
-// Angular 2
-
-
-// Environment Providers
-var PROVIDERS = [];
-// Angular debug tools in the dev console
-// https://github.com/angular/angular/blob/86405345b781a9dc2438c0fbe3e9409245647019/TOOLS_JS.md
-var _decorateModuleRef = function (value) { return value; };
-if (false) {
-    enableProdMode();
-    // Production
-    _decorateModuleRef = function (modRef) {
-        disableDebugTools();
-        return modRef;
-    };
-    PROVIDERS = PROVIDERS.slice();
-}
-else {
-    _decorateModuleRef = function (modRef) {
-        var appRef = modRef.injector.get(__WEBPACK_IMPORTED_MODULE_1__angular_core__["ApplicationRef"]);
-        var cmpRef = appRef.components[0];
-        var _ng = window.ng;
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["enableDebugTools"])(cmpRef);
-        window.ng.probe = _ng.probe;
-        window.ng.coreTokens = _ng.coreTokens;
-        return modRef;
-    };
-    // Development
-    PROVIDERS = PROVIDERS.slice();
-}
-var decorateModuleRef = _decorateModuleRef;
-var ENV_PROVIDERS = PROVIDERS.slice();
-
-
-/***/ }),
-
-/***/ 44:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = (__webpack_require__(2))(205)
-
-/***/ }),
-
 /***/ 72:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_component__ = __webpack_require__(163);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__home_component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__no_content_component__ = __webpack_require__(162);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__no_content_component__["a"]; });
 
 
 
@@ -7299,58 +7149,61 @@ module.exports = (__webpack_require__(2))(205)
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__no_content_component__ = __webpack_require__(166);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__no_content_component__["a"]; });
-
-
-
-/***/ }),
-
-/***/ 74:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__teacher_component__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__teacher_component__ = __webpack_require__(163);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__teacher_component__["a"]; });
 
 
 
 /***/ }),
 
-/***/ 90:
+/***/ 89:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(2))(123)
 
 /***/ }),
 
-/***/ 91:
+/***/ 9:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(2))(469)
+
+/***/ }),
+
+/***/ 90:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(2))(201)
 
 /***/ }),
 
-/***/ 92:
+/***/ 91:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(2))(204)
 
 /***/ }),
 
-/***/ 98:
+/***/ 97:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(0))(399)
 
 /***/ }),
 
-/***/ 99:
+/***/ 98:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(2))(410)
 
+/***/ }),
+
+/***/ 99:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(2))(436)
+
 /***/ })
 
-},[168]);
+},[164]);
 //# sourceMappingURL=main.bundle.js.map
