@@ -1,9 +1,9 @@
 {
-  "vendor": {
-    "js": "/remoteschool/vendor.bundle.js"
-  },
   "main": {
     "js": "/remoteschool/main.bundle.js"
+  },
+  "vendor": {
+    "js": "/remoteschool/vendor.bundle.js"
   },
   "polyfills": {
     "js": "/remoteschool/polyfills.bundle.js"
