@@ -317,7 +317,7 @@ var APP_RESOLVER_PROVIDERS = [
 
 
 var ROUTES = [
-    // { path: '', component: TeacherComponent },
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_0__teacher__["a" /* TeacherComponent */] },
     // { path: 'home', component: HomeComponent },
     // { path: 'about', component: AboutComponent },
     { path: 'class', component: __WEBPACK_IMPORTED_MODULE_0__teacher__["a" /* TeacherComponent */] },
