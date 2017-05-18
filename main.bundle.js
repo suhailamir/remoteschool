@@ -122,7 +122,7 @@ module.exports = "<section class=\"experiment\">\n    <!--<md-card class=\"teach
 /***/ 123:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n\n    <div class=\"col s12 m12\">\n\n        <div class=\"card-panel \">\n            <span *ngIf=\"classStarted;\">  Please share this ID with your students to Join the class :<b>{{uuid}}</b>\n                 </span>\n            <a class=\"waves-effect waves-light btn\" id=\"open-room\" (click)=\"startClass()\" *ngIf=\"!classStarted || !localVideo;\">Start Class</a>\n\n        </div>\n    </div>\n</div>\n\n<div id=\"chat-container\">\n    <div id=\"file-container\"></div>\n    <div class=\"chat-output\"></div>\n</div>\n<div class=\"row\" *ngIf=\"localVideo;\">\n    <div class=\"col s12 m12\">\n        <div class=\"card blue-grey darken-1\">\n            <div class=\"card-content white-text\">\n                <span class=\"card-title\">Teacher</span>\n            </div>\n            <div class=\"card-content\">\n                <video controls #localStream [src]=\"localVideo\" autoplay muted=\"true\" class=\"teacherVideo\"> </video>\n            </div>\n\n\n            <div class=\"card-action\">\n                <button class=\"waves-effect waves-teal btn-flat red accent-3\" (click)=\"endClass()\">End Class</button>\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"row\">\n    <div class=\"col s12 m5\">\n        <span class=\"white-text\">Students </span>\n\n        <div class=\"card-panel teal\" *ngFor=\"let stream of students\">\n\n            <video id=\"video-qdw81w4k9zc\" controls #localStream [src]=\"stream.src\" autoplay class=\"studentVideo\" style=\"border:20px;\"></video>\n\n        </div>\n    </div>\n</div>"
+module.exports = "<div class=\"row\">\n\n    <div class=\"col s12 m12\">\n\n        <div class=\"card-panel \">\n            <span *ngIf=\"classStarted;\">  Please share this ID with your students to Join the class :<b>{{uuid}}</b>\n                 </span>\n            <a class=\"waves-effect waves-light btn\" id=\"open-room\" (click)=\"startClass()\" *ngIf=\"!classStarted || !localVideo;\">Start Class</a>\n\n        </div>\n    </div>\n</div>\n\n<div id=\"chat-container\">\n    <div id=\"file-container\"></div>\n    <div class=\"chat-output\"></div>\n</div>\n<div class=\"row\" *ngIf=\"localVideo;\">\n    <div class=\"col s12 m12\">\n        <div class=\"card blue-grey darken-1\">\n            <div class=\"card-content white-text\">\n                <span class=\"card-title\">Teacher</span>\n            </div>\n            <div class=\"card-content\">\n                <video controls #localStream [src]=\"localVideo\" autoplay muted=\"true\" class=\"teacherVideo\"> </video>\n            </div>\n\n\n            <div class=\"card-action\">\n                <button class=\"waves-effect waves-teal btn-flat light-blue lighten-2\" (click)=\"shareScreen()\">Share Screen</button>\n                <button class=\"waves-effect waves-teal btn-flat red accent-3\" (click)=\"endClass()\">End Class</button>\n\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"row\">\n    <div class=\"col s12 m5\">\n        <span class=\"white-text\">Students </span>\n\n        <div class=\"card-panel teal\" *ngFor=\"let stream of students\">\n\n            <video id=\"video-qdw81w4k9zc\" controls #localStream [src]=\"stream.src\" autoplay class=\"studentVideo\" style=\"border:20px;\"></video>\n\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -12551,13 +12551,182 @@ window.RTCMultiConnection = function(roomid, forceOptions, io) {
 /***/ }),
 
 /***/ 139:
+/***/ (function(module, exports) {
+
+// Last time updated at Feb 16, 2017, 08:32:23
+
+// Latest file can be found here: https://cdn.webrtc-experiment.com/getScreenId.js
+
+// Muaz Khan         - www.MuazKhan.com
+// MIT License       - www.WebRTC-Experiment.com/licence
+// Documentation     - https://github.com/muaz-khan/getScreenId.
+
+// ______________
+// getScreenId.js
+
+/*
+getScreenId(function (error, sourceId, screen_constraints) {
+    // error    == null || 'permission-denied' || 'not-installed' || 'installed-disabled' || 'not-chrome'
+    // sourceId == null || 'string' || 'firefox'
+    
+    if(sourceId == 'firefox') {
+        navigator.mozGetUserMedia(screen_constraints, onSuccess, onFailure);
+    }
+    else navigator.webkitGetUserMedia(screen_constraints, onSuccess, onFailure);
+});
+*/
+
+(function() {
+    window.getScreenId = function(callback) {
+        // for Firefox:
+        // sourceId == 'firefox'
+        // screen_constraints = {...}
+        if (!!navigator.mozGetUserMedia) {
+            callback(null, 'firefox', {
+                video: {
+                    mozMediaSource: 'window',
+                    mediaSource: 'window'
+                }
+            });
+            return;
+        }
+
+        window.addEventListener('message', onIFrameCallback);
+
+        function onIFrameCallback(event) {
+            if (!event.data) return;
+
+            if (event.data.chromeMediaSourceId) {
+                if (event.data.chromeMediaSourceId === 'PermissionDeniedError') {
+                    callback('permission-denied');
+                } else callback(null, event.data.chromeMediaSourceId, getScreenConstraints(null, event.data.chromeMediaSourceId));
+            }
+
+            if (event.data.chromeExtensionStatus) {
+                callback(event.data.chromeExtensionStatus, null, getScreenConstraints(event.data.chromeExtensionStatus));
+            }
+
+            // this event listener is no more needed
+            window.removeEventListener('message', onIFrameCallback);
+        }
+
+        setTimeout(postGetSourceIdMessage, 100);
+    };
+
+    function getScreenConstraints(error, sourceId) {
+        var screen_constraints = {
+            audio: false,
+            video: {
+                mandatory: {
+                    chromeMediaSource: error ? 'screen' : 'desktop',
+                    maxWidth: window.screen.width > 1920 ? window.screen.width : 1920,
+                    maxHeight: window.screen.height > 1080 ? window.screen.height : 1080
+                },
+                optional: []
+            }
+        };
+
+        if (sourceId) {
+            screen_constraints.video.mandatory.chromeMediaSourceId = sourceId;
+        }
+
+        return screen_constraints;
+    }
+
+    function postGetSourceIdMessage() {
+        if (!iframe) {
+            loadIFrame(postGetSourceIdMessage);
+            return;
+        }
+
+        if (!iframe.isLoaded) {
+            setTimeout(postGetSourceIdMessage, 100);
+            return;
+        }
+
+        iframe.contentWindow.postMessage({
+            captureSourceId: true
+        }, '*');
+    }
+
+    var iframe;
+
+    // this function is used in RTCMultiConnection v3
+    window.getScreenConstraints = function(callback) {
+        loadIFrame(function() {
+            getScreenId(function(error, sourceId, screen_constraints) {
+                callback(error, screen_constraints.video);
+            });
+        });
+    };
+
+    function loadIFrame(loadCallback) {
+        if (iframe) {
+            loadCallback();
+            return;
+        }
+
+        iframe = document.createElement('iframe');
+        iframe.onload = function() {
+            iframe.isLoaded = true;
+
+            loadCallback();
+        };
+        iframe.src = 'https://www.webrtc-experiment.com/getSourceId/'; // https://wwww.yourdomain.com/getScreenId.html
+        iframe.style.display = 'none';
+        (document.body || document.documentElement).appendChild(iframe);
+    }
+
+    window.getChromeExtensionStatus = function(callback) {
+        // for Firefox:
+        if (!!navigator.mozGetUserMedia) {
+            callback('installed-enabled');
+            return;
+        }
+
+        window.addEventListener('message', onIFrameCallback);
+
+        function onIFrameCallback(event) {
+            if (!event.data) return;
+
+            if (event.data.chromeExtensionStatus) {
+                callback(event.data.chromeExtensionStatus);
+            }
+
+            // this event listener is no more needed
+            window.removeEventListener('message', onIFrameCallback);
+        }
+
+        setTimeout(postGetChromeExtensionStatusMessage, 100);
+    };
+
+    function postGetChromeExtensionStatusMessage() {
+        if (!iframe) {
+            loadIFrame(postGetChromeExtensionStatusMessage);
+            return;
+        }
+
+        if (!iframe.isLoaded) {
+            setTimeout(postGetChromeExtensionStatusMessage, 100);
+            return;
+        }
+
+        iframe.contentWindow.postMessage({
+            getChromeExtensionStatus: true
+        }, '*');
+    }
+})();
+
+/***/ }),
+
+/***/ 140:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(4))(0)
 
 /***/ }),
 
-/***/ 144:
+/***/ 145:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(4))(201)
@@ -12717,17 +12886,10 @@ module.exports = (__webpack_require__(4))(205)
 
 /***/ }),
 
-/***/ 278:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = (__webpack_require__(4))(420)
-
-/***/ }),
-
 /***/ 279:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(4))(73)
+module.exports = (__webpack_require__(4))(420)
 
 /***/ }),
 
@@ -12743,6 +12905,13 @@ module.exports = (__webpack_require__(4))(73)
 /***/ }),
 
 /***/ 280:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(4))(73)
+
+/***/ }),
+
+/***/ 281:
 /***/ (function(module, exports) {
 
 /* (ignored) */
@@ -12859,7 +13028,7 @@ AppComponent = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(145);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser_animations__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_materialize_css__ = __webpack_require__(117);
@@ -12995,9 +13164,9 @@ AppModule = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(140);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_of__ = __webpack_require__(278);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_of__ = __webpack_require__(279);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_of__);
 /* unused harmony export DataResolver */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return APP_RESOLVER_PROVIDERS; });
@@ -13410,13 +13579,16 @@ StudentComponent = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__rtcMultiConnection_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__rtcMultiConnection_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mediaElements_js__ = __webpack_require__(137);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mediaElements_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__mediaElements_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_socket_io_client__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_socket_io_client__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angular2_uuid__ = __webpack_require__(96);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angular2_uuid___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_angular2_uuid__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_jquery__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_jquery__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__rtcScreenid_js__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__rtcScreenid_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__rtcScreenid_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_socket_io_client__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_socket_io_client__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_angular2_uuid__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_angular2_uuid___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_angular2_uuid__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_jquery__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_jquery__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TeacherComponent; });
+
 
 
 
@@ -13432,24 +13604,34 @@ var TeacherComponent = (function () {
         this.route = route;
         this.elementRef = elementRef;
         this.sanitizer = sanitizer;
-        this.io = __WEBPACK_IMPORTED_MODULE_6_socket_io_client__;
+        this.io = __WEBPACK_IMPORTED_MODULE_7_socket_io_client__;
         this.students = [];
         this.localVideo = '';
-        this.uuid = __WEBPACK_IMPORTED_MODULE_7_angular2_uuid__["UUID"].UUID();
+        this.uuid = __WEBPACK_IMPORTED_MODULE_8_angular2_uuid__["UUID"].UUID();
         this.audioCtx = new AudioContext();
         // public Materialize = Materialize;
         // public mediaElement = this.mediaElement;
-        this.connection = new RTCMultiConnection('', '', __WEBPACK_IMPORTED_MODULE_6_socket_io_client__);
+        this.connection = new RTCMultiConnection('', '', __WEBPACK_IMPORTED_MODULE_7_socket_io_client__);
         // this.connection.socketURL = 'https://rtcmulticonnection.herokuapp.com:443/';
         // let socket = io('https://rtcmulticonnection.herokuapp.com:443/');
         this.connection.socketURL = 'https://webrtcsocketserver.herokuapp.com/';
-        var socket = __WEBPACK_IMPORTED_MODULE_6_socket_io_client__('https://webrtcsocketserver.herokuapp.com/');
+        var socket = __WEBPACK_IMPORTED_MODULE_7_socket_io_client__('https://webrtcsocketserver.herokuapp.com/');
         // this.connection.socketURL = 'http://localhost:9001/';
         // let socket = io('http://localhost:9001/');
         this.connection.enableLogs = false;
         socket.on('connect', function () {
         });
         // this.connection.io = 'https://rtcmulticonnection.herokuapp.com:443/';
+        this.connection.getScreenConstraints = function (callback) {
+            getScreenConstraints(function (error, screen_constraints) {
+                if (!error) {
+                    screen_constraints = this.connection.modifyScreenConstraints(screen_constraints);
+                    callback(error, screen_constraints);
+                    return;
+                }
+                throw error;
+            });
+        };
         this.connection.socketMessageEvent = 'audio-video-file-chat-demo';
         this.connection.enableFileSharing = true; // by default, it is "false".
         this.connection.session = {
@@ -13540,8 +13722,8 @@ var TeacherComponent = (function () {
         });
         var canvas = document.getElementById('myCanvas-qdw81w4k9zc');
         console.log('canvas :', canvas);
-        console.log('canvas :', __WEBPACK_IMPORTED_MODULE_8_jquery___default()('#video-qdw81w4k9zc'));
-        __WEBPACK_IMPORTED_MODULE_8_jquery___default()('.button-collapse').sideNav();
+        console.log('canvas :', __WEBPACK_IMPORTED_MODULE_9_jquery___default()('#video-qdw81w4k9zc'));
+        __WEBPACK_IMPORTED_MODULE_9_jquery___default()('.button-collapse').sideNav();
         // static data that is bundled
         // var mockData = require('assets/mock-data/mock-data.json');
         // console.log('mockData', mockData);
@@ -13590,34 +13772,41 @@ var TeacherComponent = (function () {
             // document.querySelector('h1').innerHTML = 'Entire session has been closed.';
         });
     };
+    TeacherComponent.prototype.shareScreen = function () {
+        this.connection.addStream({
+            screen: true,
+            oneway: true
+        });
+    };
+    ;
     TeacherComponent.prototype.getFrequency = function (event) {
         // let canvas = $('#myCanvas-qdw81w4k9zc');
-        var canvas = document.getElementById('myCanvas-qdw81w4k9zc');
-        console.log('canvas :', canvas);
-        console.log('canvas :', __WEBPACK_IMPORTED_MODULE_8_jquery___default()('#video-qdw81w4k9zc'));
-        var analyser = this.audioCtx.createAnalyser();
-        var source = this.audioCtx.createMediaStreamSource(event.stream);
-        source.connect(analyser);
-        analyser.connect(this.audioCtx.destination);
-        analyser.fftSize = 32;
-        var frequencyData = new Uint8Array(analyser.frequencyBinCount);
-        analyser.getByteFrequencyData(frequencyData);
-        // P10.style.height = ((frequencyData[0] * 100) / 256) + "%";
-        // P20.style.height = ((frequencyData[1] * 100) / 256) + "%";
-        // P30.style.height = ((frequencyData[2] * 100) / 256) + "%";
-        // P40.style.height = ((frequencyData[3] * 100) / 256) + "%";
-        // P50.style.height = ((frequencyData[4] * 100) / 256) + "%";
-        // P60.style.height = ((frequencyData[5] * 100) / 256) + "%";
-        // P70.style.height = ((frequencyData[6] * 100) / 256) + "%";
-        // P80.style.height = ((frequencyData[7] * 100) / 256) + "%";
-        // P90.style.height = ((frequencyData[8] * 100) / 256) + "%";
-        function renderFrame() {
-            requestAnimationFrame(renderFrame);
-            // update data in frequencyData
-            analyser.getByteFrequencyData(frequencyData);
-            // render frame based on values in frequencyData
-            console.log(frequencyData);
-        }
+        // let canvas = document.getElementById('myCanvas-qdw81w4k9zc')
+        // console.log('canvas :', canvas);
+        // console.log('canvas :', $('#video-qdw81w4k9zc'));
+        // let analyser = this.audioCtx.createAnalyser();
+        // let source = this.audioCtx.createMediaStreamSource(event.stream);
+        // source.connect(analyser);
+        // analyser.connect(this.audioCtx.destination);
+        // analyser.fftSize = 32;
+        // let frequencyData = new Uint8Array(analyser.frequencyBinCount);
+        // analyser.getByteFrequencyData(frequencyData);
+        // // P10.style.height = ((frequencyData[0] * 100) / 256) + "%";
+        // // P20.style.height = ((frequencyData[1] * 100) / 256) + "%";
+        // // P30.style.height = ((frequencyData[2] * 100) / 256) + "%";
+        // // P40.style.height = ((frequencyData[3] * 100) / 256) + "%";
+        // // P50.style.height = ((frequencyData[4] * 100) / 256) + "%";
+        // // P60.style.height = ((frequencyData[5] * 100) / 256) + "%";
+        // // P70.style.height = ((frequencyData[6] * 100) / 256) + "%";
+        // // P80.style.height = ((frequencyData[7] * 100) / 256) + "%";
+        // // P90.style.height = ((frequencyData[8] * 100) / 256) + "%";
+        // function renderFrame() {
+        //   requestAnimationFrame(renderFrame);
+        //   // update data in frequencyData
+        //   analyser.getByteFrequencyData(frequencyData);
+        //   // render frame based on values in frequencyData
+        //   console.log(frequencyData);
+        // }
         // audio.start();
         // renderFrame();
     };
